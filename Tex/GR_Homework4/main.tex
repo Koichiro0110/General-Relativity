@@ -1,0 +1,439 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{derivative}
+\usepackage{bm}
+\usepackage{comment}
+\usepackage{cancel}
+\usepackage{xcolor}
+
+
+\begin{document}
+\title{General Relativity: Homework 4}
+\author{Koichiro Takahashi}
+\maketitle
+
+\section*{Problem.1}
+(1)
+The Schwarzschild metric
+\begin{align}
+ds^2 &= dx^{\mu} g_{\mu \nu} dx^{\nu} = -c^2 \left(1 - \frac{2 G M}{r c^2} \right) dt^2 + \left(1 - \frac{2 G M}{r c^2} \right)^{-1} dr^2 + r^2 d\theta^2 + r^2 \sin^2{\theta} d\phi^2
+\end{align}
+We construct a coordinate transformation
+\begin{align}
+x^{\mu} = \{t, r, \theta, \phi \} \rightarrow x^{\mu'} = \{t', r', \theta', \phi'\}
+\end{align}
+such that the transformed metric will be Minkowski, i.e. in the spherical coordinates,
+\begin{align}
+ds^2 &= dx^{\mu'} g_{\mu' \nu'} dx^{\nu'} = -c^2 dt'^2 + dr'^2 + r'^2 d\theta'^2 + r'^2 \sin^2{\theta'} d\phi'^2 \label{Minkowski_obs}
+\end{align}
+To achieve this, the coordinate transformation should satisfy the metric is given by
+\begin{align*}
+g_{\mu' \nu'} = g_{\mu \nu} \partial_{\mu'} x^{\mu} \partial_{\nu'} x^{\nu}, \text{ where } g_{\mu' \nu'}\big|_{t = t_0, r = r_0, \theta = \pi/2, \phi = 0} = \eta_{\mu' \nu'}
+\end{align*}
+and $\eta_{\mu' \nu'}$ is the Minkowski metric.\\
+Therefore, we can construct a transformation as
+\begin{align*}
+&t' =  \left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} t, r' =  \left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1/2} r,\\[1em]
+&\theta' =  \left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} \theta, \phi' = \left[\left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1} \sin^2\left[\left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} \frac{\pi}{2} \right]\right]^{1/2} \phi
+\end{align*}
+The inverse coordinate transformation is given by
+\begin{align*}
+&t =  \left(1 - \frac{2 G M}{r_0 c^2} \right)^{- 1/2} t', r =  \left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} r',\\[1em]
+&\theta =  \left(1 - \frac{2 G M}{r_0 c^2} \right)^{- 1/2} \theta', \phi = \left[\left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1} \sin^2\left[\left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} \frac{\pi}{2} \right]\right]^{- 1/2} \phi'
+\end{align*}
+and the point we want to consider is
+\begin{align*}
+\left(t', r', \theta', \phi'\right) = \left(\left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} t_0, \left(1 - \frac{2 G M}{r_0 c^2} \right)^{- 1/2} r_0, \left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} \frac{\pi}{2}, 0\right)
+\end{align*}
+then, we get 
+\begin{align*}
+ds^2 &= -c^2 \left(1 - \frac{2 G M}{r c^2} \right) dt^2 + \left(1 - \frac{2 G M}{r c^2} \right)^{-1} dr^2 + r^2 d\theta^2 + r^2 \sin^2{\theta} d\phi^2\\[1em]
+&= -c^2 \frac{\left(1 - \frac{2 G M}{r c^2} \right)}{\left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2}} dt'^2 + \frac{\left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2}}{\left(1 - \frac{2 G M}{r c^2} \right)}  dr'^2\\[1em]
+&+ \left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1} r^2 d\theta'^2 + \left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1} \sin^2\left[\left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} \frac{\pi}{2} \right] r^2 \sin^2{\theta} d\phi'^2
+\end{align*}
+therefore, in fact, at $\left(t, r, \theta, \phi\right) = \left(t_0, r_0, \pi/2, 0\right)$,
+\begin{align*}
+ds^2 &= -c^2 \left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} dt'^2 + \left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1/2} dr'^2\\[1em]
+&+ \left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1} r_0^2 d\theta'^2 + \left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1} r_0^2 \sin^2\left[\left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} \frac{\pi}{2} \right] d\phi'^2
+\end{align*}
+which is exactly the same expression as Eq.~(\ref{Minkowski_obs}).\\
+\begin{comment}
+(1) {\color{blue} I did the transformation from the scratch...}
+To consider a coordinate transformation that sets the metric to Minkowski at a point $\left(t_0, r_0, \pi/2, 0\right)$, with time coordinate directed along the original $t$-axis, first we transform the coordinates into Cartesian coordinates. In the matrix form,
+\begin{align*}
+ds^2 &= -c^2 \left(1 - \frac{2 G M}{r c^2} \right) dt^2 + \left(1 - \frac{2 G M}{r c^2} \right)^{-1} dr^2 + r^2 d\theta^2 + r^2 \sin^2{\theta} d\phi^2\\[1em]
+&= 
+\begin{pmatrix}
+dt & dr & d \theta & d \phi
+\end{pmatrix}
+\begin{pmatrix}
+-c^2 \left(1 - \frac{2 G M}{r c^2} \right) & 0 & 0 & 0 \\
+0 & \left(1 - \frac{2 G M}{r c^2} \right)^{-1} & 0 & 0 \\
+0 & 0 & r^2 & 0 \\
+0 & 0 & 0 & r^2 \sin^2{\theta}
+\end{pmatrix}
+\begin{pmatrix}
+dt \\
+dr \\
+d \theta \\
+d \phi
+\end{pmatrix}
+\end{align*}
+And the coordinate transformation is given by
+\begin{gather*}
+t' = t, \quad x = r \sin{\theta} \cos{\phi}, \quad y = r \sin{\theta} \sin{\phi}, \quad z = r \cos{\theta}
+\end{gather*}
+$\Rightarrow$
+\begin{align*}
+\begin{pmatrix}
+dt' \\
+dx \\
+dy \\
+dz
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & \sin{\theta} \cos{\phi} & r \cos{\theta} \cos{\phi} & - r \sin{\theta} \sin{\phi} \\
+0 & \sin{\theta} \sin{\phi} & r \cos{\theta} \sin{\phi} & r \sin{\theta} \cos{\phi} \\
+0 & \cos{\theta} & -r \sin{\theta} & 0
+\end{pmatrix}
+\begin{pmatrix}
+dt \\
+dr \\
+d \theta \\
+d \phi
+\end{pmatrix}
+\end{align*}
+$\Leftrightarrow$
+\begin{align*}
+\begin{pmatrix}
+dt \\
+dr \\
+d \theta \\
+d \phi
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 1 & 0 & 0 & 0 \\
+ 0 & \sin{\theta} \cos{\phi} & \cos{\theta} \cos{\phi}/ r & - \sin{\phi}/\left(r \sin{\theta}\right) \\
+ 0 & \sin{\theta} \sin{\phi} & \cos{\theta} \sin{\phi}/r & \cos{\phi}/\left(r \sin{\theta}\right) \\
+ 0 & \cos{\theta} & - \sin{\theta}/r & 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+dt' \\
+dx \\
+dy \\
+dz
+\end{pmatrix}
+\end{align*}
+By taking the transpose,
+\begin{align*}
+\begin{pmatrix}
+dt & dr & d \theta & d \phi
+\end{pmatrix}
+=
+\begin{pmatrix}
+dt' & dx & dy & dz
+\end{pmatrix}
+\begin{pmatrix}
+ 1 & 0 & 0 & 0 \\
+ 0 & \sin{\theta} \cos{\phi} & \sin{\theta} \sin{\phi} & \cos{\theta} \\
+ 0 & \cos{\theta} \cos{\phi}/ r & \cos{\theta} \sin{\phi}/r & - \sin{\theta}/r \\
+ 0 & - \sin{\phi}/\left(r \sin{\theta}\right) & \cos{\phi}/\left(r \sin{\theta}\right) & 0 \\
+\end{pmatrix}
+\end{align*}
+Now, we substitute the specific point into the Schwarzschild metric, and those transformation matrices, and taking product of those three matrices, the line element can be written as
+\begin{align*}
+ds^2 = d x^{\mu} g_{\mu \nu} dx^{\nu}
+\end{align*}
+where $d x^{\mu} = \left(dt', dx, dy, dz\right)$, and the metric in a Cartesian coordinate
+\begin{align*}
+g_{\mu \nu} &=
+\begin{pmatrix}
+ 1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 0 & - 1/r_0 \\
+ 0 & 0 & 1/r_0 & 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+-c^2 \left(1 - \frac{2 G M}{r_0 c^2} \right) & 0 & 0 & 0 \\
+0 & \left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1} & 0 & 0 \\
+0 & 0 & r_0^2 & 0 \\
+0 & 0 & 0 & r_0^2
+\end{pmatrix}
+\begin{pmatrix}
+ 1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 0 & 1/r_0 \\
+ 0 & 0 & - 1/r_0 & 0 \\
+\end{pmatrix}
+\\[1em]
+&=
+\begin{pmatrix}
+-c^2 \left(1 - \frac{2 G M}{r_0 c^2} \right) & 0 & 0 & 0 \\
+0 & \left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1} & 0 & 0 \\
+0 & 0 & 0 & - r_0 \\
+0 & 0 & r_0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+ 1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 0 & 1/r_0 \\
+ 0 & 0 & - 1/r_0 & 0 \\
+\end{pmatrix}
+\\[1em]
+&=
+\begin{pmatrix}
+-c^2 \left(1 - \frac{2 G M}{r_0 c^2} \right) & 0 & 0 & 0 \\
+0 & \left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1} & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\end{align*}
+Therefore, the line element with the Schwarzschild metric in the Cartesian coordinates, at a specific point $\left(t_0, r_0, \pi/2, 0\right)$ is given by
+\begin{align*}
+ds^2 &= -c^2 \left(1 - \frac{2 G M}{r_0 c^2} \right) dt'^2 + \left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1} dx^2 + dy^2 + dz^2
+\end{align*}
+For the metric to be Minkowski, we can define the coordinate transformation
+\begin{align*}
+t'' = \left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} \, t', \quad x' = \left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1/2} x, \quad y' = y, \quad z' = z
+\end{align*}
+since this will give the line element
+\begin{align*}
+ds^2 &= -c^2 dt''^2 +  dx'^2 + dy'^2 + dz'^2
+\end{align*}
+Thus, we can construct the target transformations the composite transformation of the cylindrical transformation and the transformation above, given by
+\begin{gather*}
+t' = \left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} t, \quad x = \left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1/2} r \sin{\theta} \cos{\phi}, \quad y = r \sin{\theta} \sin{\phi}, \quad z = r \cos{\theta}
+\end{gather*}
+{\color{red}Still, this transformation is in the Cartesian coordinates. If we transform this in the cylindrical coordinates,}\\
+\end{comment}
+(2)
+In the spherical coordinates, the 4-velocity of the spaceship from the local inertial frame of the observer $\left(\lambda, 0, 0, 0\right)$ is given by
+\begin{gather*}
+\quad u_{ss}^{\mu'} = \left(1, v, 0, 0\right)
+\end{gather*}
+By using the inverse coordinate transformation in the last problem, given by
+\begin{align*}
+&t =  \left(1 - \frac{2 G M}{r_0 c^2} \right)^{- 1/2} t', r =  \left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} r',\\[1em]
+&\theta =  \left(1 - \frac{2 G M}{r_0 c^2} \right)^{- 1/2} \theta', \phi = \left[\left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1} \sin^2\left[\left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} \frac{\pi}{2} \right]\right]^{- 1/2} \phi'
+\end{align*}
+So,
+\begin{align*}
+&\frac{d t}{d \tau} =  \left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1/2} \frac{d t'}{d \tau}, \frac{d r}{d \tau} =  \left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} \frac{d r'}{d \tau},\\[1em] 
+&\frac{d \theta}{d \tau} = \left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1/2} \frac{d \theta'}{d \tau}, \frac{d \phi}{d \tau} = \left[\left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1} \sin^2\left[\left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} \frac{\pi}{2} \right]\right]^{-1/2} \frac{d \phi'}{d \tau}
+\end{align*}
+Therefore, the 4-velocity of the observer in the original coordinates
+\begin{align*}
+u_{ss}^{\mu} = \left(\left(1 - \frac{2 G M}{r_0 c^2} \right)^{-1/2}, \left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2} v, 0, 0\right)
+\end{align*}
+(3) The 4-velocity of the observer from its own inertial frame is given by
+\begin{gather*}
+u_{ob}^{\mu'} = \left(1, 0, 0, 0\right)
+\end{gather*}
+Therefore, by transforming in the same way as the last problem,
+\begin{gather*}
+u_{ob}^{\mu} = \left(\left(1 - \frac{2 G M}{r_0 c^2} \right)^{1/2}, 0, 0, 0\right)
+\end{gather*}
+(4) A 4-momentum of a photon is given by
+\begin{gather*}
+p_{ph}^{\mu'} = A \left(1, B, 0, 0\right)
+\end{gather*}
+Since the energy of a photon is given by
+\begin{gather*}
+E_{ph} = h \nu_{ph} = - u_{ob}^{\mu'} \eta_{\mu' \nu'} p_{ph}^{\nu'} = c^2 p_{ph}^{t'} = c^2 A
+\end{gather*}
+the momentum of the photon can be calculated as
+\begin{gather*}
+p_{ph} = \frac{E_{ph}}{c} = c A = \sqrt{p_{ph}^{\mu'} \eta_{\mu' \nu'} p_{ph}^{\nu'} + \frac{1}{c^2} \left(u_{ob}^{\mu'} \eta_{\mu' \nu'} p_{ph}^{\nu'}\right)^2}  = p_{ph}^{x'}= A B \Leftrightarrow B = c
+\end{gather*}
+where we assume $B > 0$.\\
+(4) Since the energy is coordinate-invariant, according to our observer,
+\begin{gather*}
+E_{ph} = c^2 A
+\end{gather*}
+
+\section*{Problem.2}
+(1)
+The motion of the photon emitted at radial direction with the Schwarzschild metric is given by
+\begin{align*}
+\frac{d r}{d t} = \pm c \left(1 - \frac{2 G M}{r c^2}\right)
+\end{align*}
+By integrating this differential equation, (here, the Schwarzschild radius $r_c = 2 G M / c^2$,)
+\begin{align*}
+\int_{r_0}^{r(t)} \frac{d r'}{\left(1 - \frac{r_c}{r'}\right)} = \pm c  \int_{t_0}^{t} dt'
+\end{align*}
+$\Leftrightarrow$
+\begin{align*}
+r_c \ln{|r(t) - r_c|} + r(t) - r_c \ln{|r_0 - r_c|} - r_0  = \pm c \left(t - t_0\right)
+\end{align*}
+$\Leftrightarrow$
+\begin{align*}
+t - t_0 = \pm \frac{1}{c} \left(r_c \ln{\left| \frac{r(t) - r_c}{r_0 - r_c}\right|} + r(t) - r_0 \right)
+\end{align*}
+Therefore, in the coordinate time, for the time it takes for the photon to make from the first spaceship to the second spaceship $\Delta t_1$ (outgoing photon) is given by 
+\begin{align*}
+\Delta t_1 &= \frac{1}{c} \left(r_c \ln{\left| \frac{r_2 - r_c}{r_1 - r_c}\right|} + r_2 - r_1 \right)\\[1em]
+&= \frac{G M}{c^3} \left(12 \ln{\left| \frac{12 - 2}{6 - 2}\right|} + 12 - 6 \right)\\[1em]
+&= \frac{G M}{c^3} \left(12 \ln{\left| \frac{5}{2}\right|} + 6 \right) \approx 17 \frac{G M}{c^3}
+\end{align*}
+Also, in the coordinate time, for the time it takes for the photon to make from the second spaceship to the first spaceship after reflected $\Delta t_2$ (ingoing photon) is given by
+\begin{align*}
+\Delta t_2 &= - \frac{1}{c} \left(r_c \ln{\left| \frac{r_1 - r_c}{r_2 - r_c}\right|} + r_1 - r_2 \right)\\[1em]
+&= - \frac{G M}{c^3} \left(12 \ln{\left| \frac{6 - 2}{12 - 2}\right|} + 6 - 12 \right)\\[1em]
+&= - \frac{G M}{c^3} \left(12 \ln{\left| \frac{2}{5}\right|} - 6 \right) \frac{G M}{c^3} \left(12 \ln{\left| \frac{5}{2}\right|} + 6 \right) \approx 17 \frac{G M}{c^3}
+\end{align*}
+Therefore, in total, the time it takes to make the round trip $\Delta t$ is given by
+\begin{align*}
+\Delta t = \Delta t_1 + \Delta t_2 = 2 \Delta t_1 \approx 34 \frac{G M}{c^3}
+\end{align*}
+{\color{red} doesn't change for outgoing and ingoing, no Doppler shipts}\\
+In the original coordinates, the worldline of the first spaceship is
+\begin{align*}
+x^{\mu}_{\rm{ss}1} = \left(\lambda, r_1, \pi/2, 0 \right)
+\end{align*}
+Therefore, in the observer's own reference frame at the first spaceship, the worldline of the first spaceship is
+\begin{align*}
+&x^{\mu'}_{\rm{ss}1} = \left(\left(1 - \frac{2 G M}{r_1 c^2} \right)^{1/2} \lambda, \left(1 - \frac{2 G M}{r_1 c^2} \right)^{-1/2} r_1, \left(1 - \frac{2 G M}{r_1 c^2} \right)^{1/2} \pi/2, 0 \right)
+\end{align*}
+The change of the proper time for the first spaceship in terms of the original coordinate time is given by
+\begin{align}
+\Delta \tau^{\rm{ss}1} &= \int_{t^{\rm{ss}1}_{i}}^{t^{\rm{ss}1}_{f}} d t^{\rm{ss}1} = \int_{t_{i}}^{t_{f}} \frac{d t^{\rm{ss}1}}{d t} d t 
+= \int_{t_{i}}^{t_{f}} \frac{d t^{\rm{ss}1}}{d \lambda} \frac{d \lambda}{d t} d t \nonumber\\[1em]
+&= \left(1 - \frac{2 G M}{r_1 c^2} \right)^{1/2} \int_{t_{i}}^{t_{f}}  d t = \left(1 - \frac{2 G M}{r_1 c^2} \right)^{1/2} \Delta t
+\label{proper_spaceship1}
+\end{align}
+By using the Eq.~(\ref{proper_spaceship1}),
+\begin{align*}
+\Delta \tau^{\rm{ss}1} = \left(1 - \frac{2 G M}{r_1 c^2} \right)^{1/2} \Delta t \approx \left(1 - \frac{1}{3} \right)^{1/2} 34 \frac{G M}{c^3} \approx 27.8 \frac{G M}{c^3}
+\end{align*}
+(2)
+In the original coordinates, the worldline of the second spaceship is
+\begin{align*}
+x^{\mu}_{\rm{ss}2} = \left(\lambda, r_2, \pi/2, 0 \right) 
+\end{align*}
+Therefore, in the observer's own reference frame at the second spaceship, the worldline of the second spaceship is
+\begin{align*}
+&x^{\mu'}_{\rm{ss}2} = \left(\left(1 - \frac{2 G M}{r_2 c^2} \right)^{1/2} \lambda, \left(1 - \frac{2 G M}{r_2 c^2} \right)^{-1/2} r_2, \left(1 - \frac{2 G M}{r_2 c^2} \right)^{1/2} \pi/2, 0 \right)
+\end{align*}
+The change of the proper time for the second spaceship in terms of the original coordinate time is given by
+\begin{align}
+\Delta \tau^{\rm{ss}2} &= \int_{t^{\rm{ss}2}_{i}}^{t^{\rm{ss}2}_{f}} d t^{\rm{ss}2} = \int_{t_{i}}^{t_{f}} \frac{d t^{\rm{ss}2}}{d t} d t 
+= \int_{t_{i}}^{t_{f}} \frac{d t^{\rm{ss}2}}{d \lambda} \frac{d \lambda}{d t} d t \nonumber\\[1em]
+&= \left(1 - \frac{2 G M}{r_2 c^2} \right)^{1/2} \int_{t_{i}}^{t_{f}}  d t = \left(1 - \frac{2 G M}{r_2 c^2} \right)^{1/2} \Delta t
+\label{proper_spaceship2}
+\end{align}
+By using the Eq.~(\ref{proper_spaceship2}),
+\begin{align*}
+\Delta \tau^{\rm{ss}2} = \left(1 - \frac{2 G M}{r_2 c^2} \right)^{1/2} \Delta t \approx \left(1 - \frac{1}{6} \right)^{1/2} 34 \frac{G M}{c^3} \approx 31 \frac{G M}{c^3}
+\end{align*}
+(3)
+The 4-momentum of the photon at the first spaceship, in the inertial frame of the first spaceship, is given by
+\begin{align}
+p_{\mu'}^{\rm ph1} = \frac{h}{\lambda_1}\left(\frac{1}{c}, 1, 0, 0\right)
+\end{align}
+where $\lambda_1 = 700 \rm{nm}$. By transforming the time component of this 4-momentum into the original coordinates,
+\begin{align}
+p_{t}^{\rm ph1} = p_{\mu'}^{\rm ph1} \frac{\partial x^{\mu'}}{\partial x^{t}} = p_{t'}^{\rm ph1} \frac{\partial x^{t'}}{\partial x^{t}} = \frac{h}{\lambda_1 c} \left(1 - \frac{2 G M}{r_1 c^2} \right)^{- 1/2}
+\end{align}
+The 4-momentum of the photon at the second spaceship, in the inertial frame of the second spaceship, is given by
+\begin{align}
+p_{\mu''}^{\rm ph2} = \frac{h}{\lambda_2}\left(\frac{1}{c}, 1, 0, 0\right)
+\end{align}
+By transforming the time component of this 4-momentum into the original coordinates,
+\begin{align}
+p_{t}^{\rm ph2} = p_{\mu''}^{\rm ph2} \frac{\partial x^{\mu''}}{\partial x^{t}} = p_{t''}^{\rm ph2} \frac{\partial x^{t''}}{\partial x^{t}} = \frac{h}{\lambda_2 c} \left(1 - \frac{2 G M}{r_2 c^2} \right)^{- 1/2}
+\end{align}
+Since $p_t^{\rm ph}$ is conserved,
+\begin{align}
+p_{t}^{\rm ph1} = p_{t}^{\rm ph2}
+\end{align}
+\begin{align}
+\frac{h}{\lambda_1 c} \left(1 - \frac{2 G M}{r_1 c^2} \right)^{- 1/2} = \frac{h}{\lambda_2 c} \left(1 - \frac{2 G M}{r_2 c^2} \right)^{- 1/2}
+\end{align}
+$\Leftrightarrow$
+\begin{align}
+\lambda_2 = \lambda_1 \sqrt{\frac{1 - \frac{2 G M}{r_2 c^2}}{1 - \frac{2 G M}{r_1 c^2}}} = \lambda_1 \sqrt{\frac{1 - \frac{1}{6}}{1 - \frac{1}{3}}} = \lambda_2 \frac{\sqrt{5}}{2} \approx 782 \,\mathrm{nm}
+\end{align}
+{\color{red} red-shifted!}
+
+
+\begin{comment}
+The observer at the first spaceship is stationary, and the observer's 4-velocity according to its own reference frame, is given by
+\begin{align}
+u^{\mu'}_{\rm{ss}1} = \left(1, 0, 0, 0\right)
+\end{align}
+By transforming the time component of this 4-velocity of the observer into the original coordinates,
+\begin{align}
+u^{t}_{\rm{ss}1} = u^{\mu'}_{\rm{ss}1} \frac{\partial x^{t}}{\partial x^{\mu'}} = u^{t'}_{\rm{ss}1} \frac{\partial x^{t}}{\partial x^{t'}} = \left(1 - \frac{2 G M}{r_1 c^2} \right)^{- 1/2}
+\end{align}
+Thus, the energy of the photon at the first spaceship is given by
+\begin{align}
+E^{\rm{ss}1}_{\rm ph} = -u^{\mu}_{\rm{ss}1}\,p_{\mu}^{\rm ph} = \frac{h c}{\lambda_1} \left(1 - \frac{2 G M}{r_1 c^2} \right)^{-1}
+\end{align}
+The observer at the second spaceship is stationary, and the observer's 4-velocity according to its own reference frame is given by
+\begin{align}
+u^{\mu''}_{\rm{ss}2} = \left(1, 0, 0, 0\right)
+\end{align}
+By transforming the time component of this 4-velocity of the observer into the original coordinates,
+\begin{align}
+u^{t}_{\rm{ss}2} = u^{\mu''}_{\rm{ss}2} \frac{\partial x^{t}}{\partial x^{\mu''}} = u^{t''}_{\rm{ss}2} \frac{\partial x^{t}}{\partial x^{t''}} = \left(1 - \frac{2 G M}{r_2 c^2} \right)^{- 1/2}
+\end{align}
+Since $p_t$ is conserved, the 4-momentum of the photon at the second spaceship, in the original coordinates is same, (i.e., $p^{\nu}_{\rm ph}$).
+Thus, the energy of the photon at the second spaceship is given by
+\begin{align}
+E^{\rm{ss}2}_{\rm ph} = -u^{\mu}_{\rm{ss}2}\,p_{\mu}^{\rm ph} = \frac{h}{\lambda_1 c} \left(1 - \frac{2 G M}{r_1 c^2} \right)^{- 1/2} c^2 \left(1 - \frac{2 G M}{r_2 c^2} \right)^{-1/2} = \frac{h c}{\lambda_1} \frac{1}{\sqrt{1 - \frac{2 G M}{r_1 c^2}} \sqrt{{1 - \frac{2 G M}{r_2 c^2}}}}
+\end{align}
+\end{comment}
+
+
+\begin{comment}
+Now, by transforming into the coordinates of the first spaceship, the motion of the photon emitted at radial direction with the Schwarzschild metric is given by
+\begin{align*}
+\left(1 - \frac{2 G M}{r_1 c^2} \right) \frac{d r'}{d t'} = \pm c \left(1 - \frac{2 G M}{\left(1 - \frac{2 G M}{r_1 c^2} \right)^{1/2}c^2} \frac{1}{r'}\right)
+\end{align*}
+By integrating this differential equation, here,
+\begin{align*}
+\int_{r'_0}^{r'(t')} \frac{d r''}{\left(1 - \frac{r_d}{r''}\right)} = \pm c \left(1 - \frac{2 G M}{r_1 c^2} \right)^{-1} \int_{t_0}^{t'} dt''
+\end{align*}
+where the constant
+\begin{gather*}
+r_d = \frac{2 G M}{\left(1 - \frac{2 G M}{r_1 c^2} \right)^{1/2}c^2}
+\end{gather*}
+$\Leftrightarrow$
+\begin{align*}
+r_d \ln{|r'(t) - r_d|} + r'(t') - r_d \ln{|r'_0 - r_d|} - r'_0  = \pm c \left(1 - \frac{2 G M}{r_1 c^2} \right)^{-1} \left(t' - t'_0\right)
+\end{align*}
+$\Leftrightarrow$
+\begin{align*}
+t' - t'_0 = \pm \frac{1}{c} \left(1 - \frac{2 G M}{r_1 c^2} \right) \left(r_d \ln{\left| \frac{r'(t') - r_d}{r'_0 - r_d}\right|} + r'(t') - r'_0 \right)
+\end{align*}
+In the original coordinates, the worldline of the first spaceship is given by $x_{ss1}^{\mu} = \left(\lambda, r_1, 0, 0 \right)$. Thus, after the transformation,
+\begin{gather*}
+x_{ss1}^{\mu'} = \left(\left(1 - \frac{2 G M}{r_1 c^2} \right)^{- 1/2} \lambda, \left(1 - \frac{2 G M}{r_1 c^2} \right)^{1/2} r_1, 0, 0 \right)
+\end{gather*}
+???
+\end{comment}
+
+\section*{Problem.3}
+The Christoffel symbols are defined by
+\begin{gather*}
+\Gamma^{a}_{bc} = \frac{1}{2} g^{ad} \left(\partial_{b} g_{dc} + \partial_{c} g_{bd} - \partial_{d} g_{bc}\right)
+\end{gather*}
+If I choose $\Gamma^{2}_{44}$
+\begin{align*}
+\Gamma^{2}_{44} &= \frac{1}{2} g^{2 d} \left(\partial_4 g_{d 4} + \partial_4 g_{4d} - \partial_{d} g_{44} \right) = - \frac{1}{2} g^{2 2} \partial_{2} g_{44}\\[1em]
+&= - \frac{1}{2} \left(1 - \frac{2 G M}{r c^2} \right)^{-1} \frac{\partial}{\partial r} \left(r^2 \sin^2{\theta} \right) = - r \left(1 - \frac{2 G M}{r c^2} \right)^{-1} \sin^2{\theta}
+\end{align*}
+Therefore, at the equatorial plane $\left(\theta = \pi/2\right)$,
+\begin{align*}
+\Gamma^{2}_{44}\big|_{\theta = \pi/2} = - r \left(1 - \frac{2 G M}{r c^2} \right)^{-1} \neq 0
+\end{align*}
+
+\end{document}

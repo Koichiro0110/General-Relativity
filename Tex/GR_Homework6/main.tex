@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{derivative}
+\usepackage{bm}
+\usepackage{comment}
+\usepackage{cancel}
+\usepackage{xcolor}
+\usepackage{float}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+\title{General Relativity: Homework 6}
+\author{Koichiro Takahashi}
+\maketitle
+
+\section*{Problem.1}
+(i)\&(ii)Attached as a code.
+\begin{align}
+\frac{dt}{d\tau} &= e \left(1 - \dfrac{2}{r}\right)^{-1}\\
+\frac{d\phi}{d\tau} &= \frac{l_z}{r^2}\\
+\frac{dr}{d\tau} &= u^{r}\\
+\frac{du^{r}}{d\tau} &= -\frac{1}{r^2} + \frac{l_z^2}{r^3} - \frac{3 l_z^2}{r^4}
+\end{align}
+(iii)
+Trajectories of nearly constant radius satisfy
+\begin{align}
+\frac{dr}{d\tau} &= 0\\
+\frac{du^{r}}{d\tau} &= 0\\
+u^{r}(0) &= \sqrt{e^2 - \left(1 - \frac{2}{r_0}\right)\left(\frac{l_z^2}{r_0^2} + 1 \right)} = 0
+\end{align}
+These conditions are obtained by solving the following two equations for $e$ and $l_z$ at given $r(0) = r_0$.
+\begin{align}
+&-\frac{1}{r_0^2} + \frac{l_z^2}{r_0^3} - \frac{3l_z^2}{r_0^4} = 0\\
+&\sqrt{e^2 - \left(1 - \frac{2}{r_0}\right)\left(\frac{l_z^2}{r_0^2} + 1 \right)} = 0
+\end{align}
+$\Leftrightarrow$
+\begin{align}
+&\left(\frac{1}{r_0^3} - \frac{3}{r_0^4}\right) l_z^2 = \frac{1}{r_0^2}\\
+&e^2 = \left(1 - \frac{2}{r_0}\right)\left(\frac{l_z^2}{r_0^2} + 1 \right)
+\end{align}
+$\Leftrightarrow$
+\begin{align}
+&l_z^2 = \frac{1}{r_0^2\left(\frac{1}{r_0^3} - \frac{3}{r_0^4}\right)} = \frac{1}{\left(\frac{1}{r_0} - \frac{3}{r_0^2}\right)} = \frac{r_0^2}{r_0 - 3}\\
+&e^2 = \left(1 - \frac{2}{r_0}\right)\left(\frac{l_z^2}{r_0^2} + 1 \right)
+\end{align}
+$\Leftrightarrow$
+\begin{align}
+&l_z = \pm \sqrt{\frac{r_0^2}{r_0 - 3}} = 4\\
+&e = \pm \sqrt{\left(1 - \frac{2}{r_0}\right)\left(\frac{1}{r_0 - 3} + 1 \right)} \approx 0.962
+\end{align}
+The trajectory is attached as a code.
+
+\section*{Problem.2}
+The Schwarzschild metric at at $\theta = \pi/2$ is given by
+\begin{align}
+g_{\mu \nu} = \mathrm{diag} \left(- \left(1 - \frac{2}{r}\right), \left(1 - \frac{2}{r}\right)^{-1}, r^2, r^2 \right)
+\end{align}
+$\Leftrightarrow$
+\begin{align}
+g^{\mu \nu} = \mathrm{diag} \left(- \left(1 - \frac{2}{r}\right)^{-1}, \left(1 - \frac{2}{r}\right), 1/r^2, 1/r^2 \right)
+\end{align}
+(i) Let $p_{\mu}$ of a photon in spherical coordinates at $\theta = \pi/2$, can be written, in general, as
+\begin{align}
+p_{\mu}(\lambda) = \left(p_{t}(\lambda), p_{r}(\lambda), 0, p_{\phi}(\lambda) \right)
+\end{align}
+Here, the 4-velocity of an observer on a circular orbit at $r = r_0, \theta = \pi/2$ is given by
+\begin{align}
+u^{\mu} = \left(u^{t}, 0, 0, u^{\phi} \right)
+\end{align}
+Here, since the observer is on a circular orbit at radius $r$,
+\begin{align}
+u^{t} = \frac{r}{r - 2} = \sqrt{\frac{r}{r - 3}}, \quad u^{\phi} = \frac{l_z}{r^2} = \frac{1}{r \sqrt{r - 3}}
+\end{align}
+Then, the energy of the photon is given by
+\begin{align}
+E_0 = - u^{\mu} p_{\mu}(0) = - p_{t} u^{t} - p_{\phi} u^{\phi}
+\end{align}
+Also, for a photon, we have
+\begin{align}
+g^{\mu \nu} p_{\mu}(0) p_{\nu}(0) = g^{tt} \left(p_{t}(0)\right)^2 + g^{rr} \left(p_{r}(0)\right)^2 + g^{\phi \phi} \left(p_{\phi}(0)\right)^2 = 0
+\end{align}
+
+Thus, the 4-momentum of a photon $p^{\mu}$, with the Schwarzschild metric, in spherical coordinates, in the reference frame of an observer on a circular orbit at radius $r_0$, $\theta = \pi/2$, is given by
+\begin{align}
+p^{\mu} = g^{\mu \nu} p_{\mu}
+\end{align}
+The code is attached after the Latex pages.\\
+(ii)
+Assume
+\begin{align}
+p_{\mu} = E_0 \left(u_t, \pm \sqrt{g_{rr}}, 0, u_{\phi} \right)
+\end{align}
+where
+\begin{align}
+u_t &= g_{tt} u^{t} = - \left(1 - \frac{2}{r}\right) \sqrt{\frac{r}{r - 3}}\\
+u_{\phi} &= g_{\phi \phi} u^{\phi} = \frac{r}{r \sqrt{r - 3}}
+\end{align}
+\begin{align}
+\frac{dt}{d\lambda} &= E \left(1 - \dfrac{2}{r}\right)^{-1}\\
+\frac{d\phi}{d\lambda} &= \frac{L_z}{r^2}\\
+\frac{dr}{d\lambda} &= p^{r}\\
+\frac{dp^{r}}{d\lambda} &= L_z^2 \frac{r - 3}{r^4}
+\end{align}
+with $E = - p_t, L_z = - p_\phi$, and a initial condition
+\begin{align}
+p^{r}(\lambda=0) &= \pm \sqrt{\frac{E^2}{c^2} - \frac{r - 2}{r^3} L_z^2}
+\end{align}
+Thus, if the photon was emitted at $r = r_0$,
+\begin{gather}
+E = E_0 \left(1 - \frac{2}{r_0}\right) \sqrt{\frac{r_0}{r_0 - 3}}
+\end{gather}
+\begin{gather}
+L_z = - \frac{E_0}{\sqrt{r_0 - 3}}
+\end{gather}
+\end{document}

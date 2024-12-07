@@ -1,0 +1,177 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{derivative}
+\usepackage{bm}
+\usepackage{comment}
+\usepackage{cancel}
+\usepackage{xcolor}
+
+
+\begin{document}
+\title{General Relativity: Homework 3}
+\author{Koichiro Takahashi}
+\maketitle
+
+\section*{Problem.1}
+Here, the 4-velocity and the 4-momentum of a particle for an observer in an inertial frame $p^{\mu}$ is given by
+\begin{align*}
+u^{\mu} = \{u^{t}, u^{x}, u^{y}, u^{z}  \}, \quad p^{\mu} = \{p^{t}, p^{x}, p^{y}, p^{z}  \}
+\end{align*}
+Here,
+\begin{align*}
+E = c^2 u^{t} p^{t} - u^{x} p^{x} - u^{y} p^{y} - u^{z} p^{z} = - u^{\mu} \eta_{\mu \nu} p^{\nu}
+\end{align*}
+where the metric for this specific observer is the Minkowski metric $\eta_{\mu \nu} = \mathrm{diag}\left(-c^2, 1, 1, 1 \right)$.\\[1em]
+From the principle of the General Relativity, one can always choose a coordinate with the Minkowski metric $\eta_{\mu \nu}$. And if you choose the specific observer, which is the particle's own reference frame,
+\begin{align*}
+u^{\mu'} = \{1, 0, 0, 0 \}, \quad p^{\mu'} = \{E/c^2, p^{x}, p^{y}, p^{z}\}
+\end{align*}
+Then, the scalar of its 4-velocity and 4-momentum with the Minkowski metric is
+\begin{align*}
+- u^{\mu'} \eta_{\mu' \nu'} p^{\nu'} = c^2 u^{t'} p^{t'} = E
+\end{align*}
+In an arbitrary inertial frame with a metric $g_{\mu \nu}$ and a coordinate $x^{\mu}$, the scalar $u^{\mu} g_{\mu \nu} p^{\nu}$ is invariant under any coordinate transformation. Therefore, one can show that the energy defined as $E = - u^{\mu} \eta_{\mu \nu} p^{\nu}$ is the correct definition for a particle as measured by an arbitrary observer in general relativity.
+\section*{Problem.2}
+Here, the coordinate transformation from Cartesian to cylindrical coordinates with different time coordinates
+\begin{gather*}
+t' = 2t, \quad r' = \sqrt{x^2 + y^2}, \quad \theta' = \arctan\left(\frac{y}{x}\right), \quad z' = z
+\end{gather*}
+and the inverse transformation
+\begin{gather*}
+t = t'/2, \quad x = r' \cos{\theta'}, \quad y = r' \sin{\theta'}, \quad z = z'
+\end{gather*}
+here, we assume the units such that $c = 1$.\\
+(1)
+The worldline in the Cartesian coordinate $x^{\mu}(\lambda) = \left(\lambda, 3 \lambda^2, \lambda^2, 1\right)$, which can be transformed as in cylindrical coordinates
+\begin{align*}
+x^{\mu'}(\lambda) &= \left(2 \lambda, \sqrt{(3 \lambda^2)^2 + (\lambda^2)^2} ,\arctan\left(\frac{\lambda^2}{3 \lambda^2}\right), 1\right)\\[1em]
+&= \left(2 \lambda, \sqrt{10} \lambda^2 ,\arctan\left(\frac{1}{3}\right), 1\right)
+\end{align*}
+(2)
+In Cartesian coordinates, tangent vector can be calculated as
+\begin{align*}
+\frac{d x^{\mu}}{d \lambda} &= \left(1, 6 \lambda, 2 \lambda, 0\right)
+\end{align*}
+Therefore,
+\begin{align*}
+\frac{d x^{\mu}}{d \lambda}\bigg|_{\lambda = 1} &= \left(1, 6, 2, 0\right)
+\end{align*}
+The coordinate velocity is
+\begin{align*}
+\frac{d \Vec{x}}{d t}(\lambda) &= \frac{d \Vec{x}}{d \lambda}\frac{d \lambda}{d t} = \left(6 \lambda, 2 \lambda, 0\right)
+\end{align*}
+so that
+\begin{align*}
+\frac{d \Vec{x}}{d t}\bigg|_{\lambda = 1} &= \left(6, 2, 0\right)
+\end{align*}
+In cylindrical coordinates, tangent vector can be calculated as
+\begin{align*}
+\frac{d x^{\mu'}}{d \lambda} &= \left(2, 2 \sqrt{10} \lambda , 0, 0\right)
+\end{align*}
+Therefore,
+\begin{align*}
+\frac{d x^{\mu'}}{d \lambda}\bigg|_{\lambda = 1} &= \left(2, 2 \sqrt{10}, 0, 0\right)
+\end{align*}
+The coordinate velocity is
+\begin{align*}
+\frac{d \Vec{x}'}{d t'}(\lambda) &= \frac{d \Vec{x'}}{d \lambda}\frac{d \lambda}{d t'} = \left(\sqrt{10} \lambda, 0, 0\right)
+\end{align*}
+so that
+\begin{align*}
+\frac{d \Vec{x}'}{d t'}\bigg|_{\lambda = 1} &= \left(\sqrt{10}, 0, 0\right)
+\end{align*}
+(3)The coordinate transformation of the tangent vector
+\begin{align*}
+\frac{d x^{\mu}}{d \lambda} &= \left(\frac{d t}{d \lambda}, \frac{d x}{d \lambda}, \frac{d y}{d \lambda}, \frac{d z}{d \lambda}\right)\\[1em]
+&= \left(\frac{d (t'/2)}{d \lambda}, \frac{d (r' \cos{\theta'})}{d \lambda}, \frac{d (r' \sin{\theta'})}{d \lambda}, \frac{d z'}{d \lambda}\right)\\[1em]
+&= \left(\frac{1}{2} \frac{d t'}{d \lambda}, \frac{d r'}{d \lambda}\cos{\theta'} - r' \sin{\theta'}\frac{d \theta'}{d \lambda}, \frac{d r'}{d \lambda}\sin{\theta'} + r' \cos{\theta'}\frac{d \theta'}{d \lambda}, \frac{d z'}{d \lambda}\right)\\[1em]
+\end{align*}
+You can plug-in all the values from the previous problem and then you will get it...\\
+Also you can do the same thing for $d \Vec{x} / dt$ and get the different result...\\
+(4)
+Here, since the metric is Minkowski in the Cartesian coordinates,
+\begin{align*}
+ds^2 &= -c^2 dt^2 + dx^2 + dy^2 + dz^2\\[1em]
+&= -c^2 \left(\frac{dt'}{2}\right)^2 + (\cos{\theta'} dr' -r' \sin{\theta} d \theta')^2 + (\sin{\theta'} dr' + r' \cos{\theta} d \theta')^2 + dz'^2\\[1em]
+&= -\frac{c^2}{4} dt'^2 + dr'^2 + r'^2 d\theta'^2 + dz'^2
+\end{align*}
+Therefore, the metric in the cylindrical coordinates is given by
+\begin{gather*}
+g_{\mu' \nu'} =
+\begin{pmatrix}
+-c^2/4 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & r'^2 & 0 \\
+0 & 0 & 0 & -1
+\end{pmatrix}
+\end{gather*}
+(5) From the definition of a circle of radius $R$, in the cylindrical coordinates, a worldline $x^{\mu}(\lambda) = \left({\color{red}0}, R, \lambda, 0\right) \left(\lambda: 0 \rightarrow 2\pi\right)$ will round a circle once and the integration of the line elements $ds(\lambda) =\sqrt{d x^{\mu'} g_{\mu' \nu'} dx^{\nu'}} =\sqrt{-\frac{c^2}{4} dt'^2 + dr'^2 + r'^2 d\theta'^2 + dz'^2}$ will give the length of a circle $L$. ({\color{red}Stopping the time, like putting a ruler?})
+\begin{align*}
+L &= \int^{2 \pi}_{0} d\lambda \frac{d s}{d \lambda}\\[1em]
+&= \int^{2 \pi}_{0} d\lambda \sqrt{-\frac{c^2}{4} \left(\frac{dt'}{d \lambda}\right)^2 +\left(\frac{dr'}{d \lambda}\right)^2 + r'(\lambda)^2 \left(\frac{d\theta'}{d \lambda}\right)^2 + \left(\frac{dz'}{d \lambda}\right)^2}\\[1em]
+&= \int^{2 \pi}_{0} d\lambda \sqrt{R^2} = 2 \pi R
+\end{align*}
+\section*{Problem.3}
+The Schwarzschild metric gives its line element as
+\begin{align*}
+ds^2 &= -c^2 \left(1 - \frac{2 G M}{r c^2} \right) dt^2 + \left(1 - \frac{2 G M}{r c^2} \right)^{-1} dr^2 + r^2 d\theta^2 + r^2 \sin^2{\theta} d\phi^2
+\end{align*}
+(1)
+In the same way as the Problem.2(5), using a worldline $x^{\mu}(\lambda) = \left(0, R, \pi/2, \lambda\right) \left(\lambda: 0 \rightarrow 2\pi\right)$,
+\begin{align*}
+L &= \int^{2 \pi}_{0} d\lambda \frac{d s}{d \lambda}\\[1em]
+&= \int^{2 \pi}_{0} d\lambda \sqrt{- c^2 \left(1 - \frac{2 G M}{r c^2} \right) \left(\frac{dt}{d \lambda}\right)^2 + \left(1 - \frac{2 G M}{r c^2} \right)^{-1} \left(\frac{dr}{d \lambda}\right)^2 + r^2 \left(\frac{d\theta}{d \lambda}\right)^2 + r^2 \sin^2{\theta} \left(\frac{d \phi}{d \lambda}\right)^2}\\[1em]
+&= \int^{2 \pi}_{0} d\lambda \sqrt{R^2} = 2 \pi R
+\end{align*}
+(2)
+By using the unit $\frac{G M}{c^2} = 1$, the two point on the space-time are given by $\left(t, 4, \theta, \phi \right)$ and $\left(t, 8, \theta, \phi \right)$. Since only the $r$-coordinate is different, the distance between the two points is given by integrating the line elements of the worldline $x^{\mu}(\lambda) = \left(0, \lambda, \pi/2, 0\right) \left(\lambda: 4 \rightarrow 8\right)$
+\begin{align*}
+L &= \int^{8}_{4} d\lambda \frac{d s}{d \lambda}\\[1em]
+&= \int^{8}_{4} d\lambda \sqrt{- c^2 \left(1 - \frac{2}{r} \right) \left(\frac{dt}{d \lambda}\right)^2 + \left(1 - \frac{2}{r} \right)^{-1} \left(\frac{dr}{d \lambda}\right)^2 + r^2 \left(\frac{d\theta}{d \lambda}\right)^2 + r^2 \sin^2{\theta} \left(\frac{d \phi}{d \lambda}\right)^2}\\[1em]
+&= \int^{8}_{4} d\lambda \sqrt{\left(1 - \frac{2}{\lambda} \right)^{-1}} = \int^{8}_{4} \frac{d\lambda}{\sqrt{1 - \frac{2}{\lambda}}} \approx 4.97\\[1em]
+\end{align*}
+(3)
+The worldline of an observer performing one orbit along a constant-$R$ circle at angular velocity $d \phi/d t = \Omega$ is given by
+\begin{align*}
+x^{\mu}(\lambda) = \left(\lambda, R, \pi/2, \Omega \lambda\right)
+\end{align*}
+(4) We can calculate the quantity as the change of proper time $\Delta \tau$ of the observer between $\lambda = 0$ and $\lambda = 2 \pi/R$,
+\begin{align*}
+\Delta \tau &= \int^{\frac{2 \pi}{R}}_{0} d\lambda \frac{d \tau}{d\lambda} = \int^{\frac{2 \pi}{R}}_{0} d\lambda \sqrt{-\frac{1}{c^2} \left(\frac{d s}{d\lambda}\right)^2}\\[1em]
+&= \int^{\frac{2 \pi}{R}}_{0} d\lambda \sqrt{\left(1 - \frac{2 G M}{r c^2} \right) \left(\frac{dt}{d \lambda}\right)^2 -\frac{1}{c^2} \left(1 - \frac{2 G M}{r c^2} \right)^{-1} \left(\frac{dr}{d \lambda}\right)^2 -\frac{1}{c^2} r^2 \left(\frac{d\theta}{d \lambda}\right)^2 -\frac{1}{c^2} r^2 \sin^2{\theta} \left(\frac{d \phi}{d \lambda}\right)^2}\\[1em]
+&= \int^{\frac{2 \pi}{R}}_{0} d\lambda \sqrt{\left(1 - \frac{2 G M}{R c^2} \right) -\frac{R^2 \Omega^2}{c^2}} = \frac{2 \pi}{R} \sqrt{\left(1 - \frac{2 G M}{R c^2} \right) -\frac{R^2 \Omega^2}{c^2}}
+\end{align*}
+By substituting $R = \frac{12 G M}{c^2}, \Omega^2 = \frac{G M}{R^3}, M = M_\odot$,
+\begin{align*}
+\Delta \tau &= \frac{2 \pi c^2}{12 G M_\odot} \sqrt{\left(1 - \frac{2 G M_\odot}{c^2} \frac{c^2}{12 G M_\odot}\right) -\frac{G M_\odot}{c^2} \frac{c^2}{12 G M_\odot}}\\[1em]
+&= \frac{\pi c^2}{6 G M_\odot} \sqrt{1 - \frac{1 }{4}} = \frac{\sqrt{3} \pi c^2}{12 G M_\odot}
+\end{align*}
+(5) Because of the photon, i.e., $d s/ d \lambda = 0$, plus $d\theta/d \lambda = d \phi/d \lambda = 0$,
+\begin{align*}
+- c^2 \left(1 - \frac{2 G M}{r c^2}\right) \left(\frac{dt}{d \lambda}\right)^2 + \left(1 - \frac{2 G M}{r c^2}\right)^{-1} \left(\frac{dr}{d \lambda}\right)^2 = 0
+\end{align*}
+$\Leftrightarrow$
+\begin{align*}
+\left(\frac{dr}{d t}\right)^2 = c^2 \left(1 - \frac{2 G M}{r c^2}\right)^2
+\end{align*}
+$\Leftrightarrow$
+\begin{align*}
+\frac{dr}{d t} = \pm c \left(1 - \frac{2 G M}{r c^2}\right)
+\end{align*}
+Since there are no velocities for the angular part, i.e., $d\theta/dt = d\phi/dt = 0$, the possible coordinate velocities are given by
+$\Leftrightarrow$
+\begin{align*}
+\frac{d \Vec{x}}{d t} = \bm{e}_{r} \frac{d r}{d t} = \pm c \left(1 - \frac{2 G M}{r c^2}\right) \bm{e}_{r}
+\end{align*}
+where the positive sign is 'outgoing' solution, and the negative sign is 'ingoing' solution.\\
+At $r = 2 G M / c^2$,
+\begin{align*}
+\frac{d \Vec{x}}{d t} = 0
+\end{align*}
+So the photon looks stopped at the event horizon at $r = 2 G M / c^2$. (The speed of photon is not $c$ in general, in General Relativity...)
+\end{document}

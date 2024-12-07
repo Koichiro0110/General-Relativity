@@ -1,0 +1,255 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{derivative}
+\usepackage{bm}
+\usepackage{comment}
+\usepackage{cancel}
+\usepackage{xcolor}
+
+
+\begin{document}
+\title{General Relativity: Homework 2}
+\author{Koichiro Takahashi}
+\maketitle
+
+\section*{Problem.1}
+Whether they are inertial observers in general relativity.\\
+(1) No, since there is an external force acting on the bed, which cancel out with the gravitational field. 
+(2) Yes without air resistance, since there is no external force acting on a human and only with the gravitational field.\\
+No with air resistance, since there is an external force acting on a human.\\
+(3) No, since there needs to be an external force acting on a spaceship to be stationary above the North pole.\\
+(4) Yes, since a satellite is orbiting only by gravitational field.
+\section*{Problem.2}
+(1)
+\begin{align*}
+W_D = \left[\lambda, R \cos(\Omega \lambda), R \sin(\Omega \lambda), 0\right]
+\end{align*}
+
+(2)
+\begin{align*}
+\frac{d t}{d \lambda} = 1
+\end{align*}
+\begin{align*}
+\frac{d \tau}{d \lambda} &= \sqrt{\left(\frac{d t}{d \lambda}\right)^2 - \frac{1}{c^2} \left(\frac{d x}{d \lambda}\right)^2 + \frac{1}{c^2} \left(\frac{d y}{d \lambda}\right)^2 + \frac{1}{c^2} \left(\frac{d z}{d \lambda}\right)^2}\\[1em]
+&= \sqrt{1 - \frac{R^2 \Omega^2}{c^2} \sin^2(\Omega \lambda) - \frac{R^2 \Omega^2}{c^2} \cos^2(\Omega \lambda) + 0}\\[1em]
+&= \sqrt{1 - \frac{R^2 \Omega^2}{c^2}}
+\end{align*}
+\begin{align*}
+\frac{d \tau}{d t} &= \frac{d \tau}{d \lambda}\frac{d \lambda}{d t} = \sqrt{1 - \frac{R^2 \Omega^2}{c^2}}
+\end{align*}
+(3)
+The time it takes for the object to complete one rotation $\Delta t_1$, according to an observer stationary at the center of the rotation circle, is given by the integration below:
+\begin{align*}
+\Delta t_1 &= \int_{0}^{\frac{2 \pi}{\Omega}} d \lambda \frac{d t}{d \lambda} = \int_{0}^{\frac{2 \pi}{\Omega}} d \lambda = \frac{2 \pi}{\Omega} \left(\because \frac{d t}{d \lambda} = 1\right)
+\end{align*}
+The answer for an observer coming with object is not same, but the change of the proper time $\Delta \tau$, because the object is not moving in its own inertial frame.
+\begin{align*}
+\Delta \tau &= \int_{0}^{\frac{2 \pi}{\Omega}} d \lambda \frac{d \tau}{d \lambda} = \sqrt{1 - \frac{R^2 \Omega^2}{c^2}} \int_{0}^{\frac{2 \pi}{\Omega}} d \lambda = \frac{2 \pi}{\Omega} \sqrt{1 - \frac{R^2 \Omega^2}{c^2}}
+\end{align*}
+
+
+\section*{Problem.3}
+Here, $\bar{v}_A = 0.8c \,\hat{x}, \bar{v}_B = -0.6 c \,\hat{x}, \bar{v}_C = 0.7 c \,\hat{y}$. (I might not plug in since those are just the numbers.)\\
+Since a space station is immobile, the worldline of the station $W_s$ is given by
+\begin{gather*}
+W_S = \left[\lambda_S, 0, 0, 0 \right]
+\end{gather*}
+For the spaceships, they are moving at the constant velocity, so their worldlines are given as below:
+\begin{align*}
+W_A &= \left[\lambda_A, \bar{v}_A \lambda_A, 0, 0 \right] = \left[\lambda_A, 0.8 \, c \, \lambda_A, 0, 0 \right] \\[1em]
+W_B &= \left[\lambda_B, \bar{v}_B \lambda_B, 0, 0 \right] = \left[\lambda_B, - 0.6 \, c \, \lambda_B, 0, 0 \right] \\[1em]
+W_C &= \left[\lambda_C, 0, \bar{v}_C \lambda_C, 0 \right] = \left[\lambda_C, 0, 0.7 \, c \, \lambda_C, 0 \right]
+\end{align*}
+(2)
+The Lorentz transformation from the original coordinate $(t, x, y, z)$ to the coordinate $(t', x', y', z')$, comoving with spaceship $A$ is given by
+\begin{align*}
+t' &= \gamma_A \left( t - \frac{\bar{v}_A x}{c^2}\right)\\
+x' &= \gamma_A \left( x - \bar{v}_A t\right)\\
+y' &= y\\
+z' &= z\\
+\gamma_A &= \frac{1}{\sqrt{1 - \frac{\bar{v}_A^2}{c^2}}}
+\end{align*}
+(3)
+After the Lorentz transformation,
+\begin{align*}
+W'_S &= \left[\gamma_A \lambda_S, - \gamma_A \bar{v}_A \lambda_S, 0, 0 \right]\\[1em]
+W'_A &= \left[\gamma_A \left(\lambda_A  - \frac{\bar{v}_A \cdot \bar{v}_A \lambda_A}{c^2}\right), 0, 0, 0 \right] = \left[\frac{\lambda_A}{\gamma_A}, 0, 0, 0 \right]\\[1em]
+W'_B &= \left[\gamma_A \left(\lambda_B - \frac{\bar{v}_A \bar{v}_B \lambda_B}{c^2}\right), \gamma_A \left( \bar{v}_B \lambda_B - \bar{v}_A \lambda_B\right), 0, 0 \right] = \left[\gamma_A \left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2}\right) \lambda_B , \gamma_A \left( \bar{v}_B - \bar{v}_A\right) \lambda_B, 0, 0 \right]\\[1em]
+W'_C &= \left[\gamma_A \lambda_C, - \gamma_A \bar{v}_A \lambda_C, \bar{v}_C \lambda_C, 0 \right]
+\end{align*}
+Given the worldlines of the space station and the spaceships $B$ and $C$ from the A's reference frame, one can compute the velocity in $A$'s reference frame.
+Here, the four-velocities
+\begin{align*}
+u'_S(\lambda_S) &= \frac{d W'_S}{d \lambda_S} = \left[\gamma_A, - \gamma_A \bar{v}_A, 0, 0 \right]\\[1em]
+u'_B(\lambda_B) &= \frac{d W'_B}{d \lambda_B} = \left[\gamma_A \left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2}\right), \gamma_A \left( \bar{v}_B - \bar{v}_A\right), 0, 0 \right]\\[1em]
+u'_C(\lambda_C) &= \frac{d W'_C}{d \lambda_C} = \left[\gamma_A, - \gamma_A \bar{v}_A, \bar{v}_C, 0 \right]
+\end{align*}
+So that the velocities as measured by spaceship $A$ are given by
+\begin{align*}
+\frac{d \Vec{x}'_S}{d t'_S} &= \frac{d \Vec{x}'_S}{d \lambda_S} \frac{d \lambda_S}{d t'_S} = \left[-\bar{v}_A, 0, 0 \right]\\[1em]
+\frac{d \Vec{x}'_B}{d t'_B} &= \frac{d \Vec{x}'_B}{d \lambda_B} \frac{d \lambda_B}{d t'_B} = \left[\frac{\bar{v}_B - \bar{v}_A}{1 - \frac{\bar{v}_A \bar{v}_B}{c^2}}, 0, 0 \right]\\[1em]
+\frac{d \Vec{x}'_C}{d t'_C} &= \frac{d \Vec{x}'_C}{d \lambda_C} \frac{d \lambda_C}{d t'_C} = \left[-\bar{v}_A, \frac{\bar{v}_C}{\gamma_A}, 0 \right]
+\end{align*}
+(4)
+In general, the worldline of the emitted pulse of light in arbitrary direction, which could be defined by the spatial polar angles $(\theta, \varphi)$, according to the $A$'s reference frame, is given by
+\begin{gather*}
+W'_{L}(\lambda_{L(\theta,\varphi)}) = \left[\lambda_{L(\theta,\varphi)} + \Delta t_A, c \sin{\theta} \cos{\varphi} \cdot \lambda_{L(\theta,\varphi)}, c \sin{\theta} \sin{\varphi} \cdot \lambda_{L(\theta,\varphi)}, c \cos{\theta} \cdot \lambda_{L(\theta,\varphi)} \right]
+\end{gather*}
+The worldline of the emitted pulse of light in the opposite of $x$-direction(, i.e. $(\theta, \varphi) = (\frac{\pi}{2}, \pi)$), according to the $A$'s reference frame, is given by
+\begin{gather*}
+W'_{Lx} = \left[\lambda_{Lx} + \Delta t_A, -c \lambda_{Lx}, 0, 0 \right]
+\end{gather*}
+Therefore, the point where those two worldlines of the space station and the pulse intersect in the $A$'s reference frame is given by
+\begin{align*}
+&\left\{
+\begin{array}{l}
+t'_{S}(\lambda_{Sc}) = t'_{Lx}(\lambda_{Lxc})\\[1em]
+x'_{S}(\lambda_{Sc}) = x'_{Lx}(\lambda_{Lxc}) 
+\end{array}
+\right.\\[1em]
+\Leftrightarrow 
+&\left\{
+\begin{array}{l}
+\gamma_A \lambda_{Sc} = \lambda_{Lxc} + \Delta t_A\\[1em]
+- \gamma_A \bar{v}_A \lambda_{Sc} = -c \lambda_{Lxc}
+\end{array}
+\right.\\[1em]
+\Leftrightarrow
+&\left\{
+\begin{array}{l}
+\lambda_{Sc} = \frac{1}{\gamma_A \left(1 - \frac{\bar{v}_A}{c} \right)}\Delta t_A\\[1em]
+\lambda_{Lxc} = \frac{\bar{v}_A}{c} \frac{1}{\left(1 - \frac{\bar{v}_A}{c} \right)} \Delta t_A
+\end{array}
+\right.
+\end{align*}
+Therefore, the point where those two worldlines of the space station and the pulse intersect is
+\begin{gather*}
+W'_S(\lambda_{Sc}) = W'_{Lx}(\lambda_{Lxc}) =  \left[\frac{\Delta t_A}{\left(1 - \frac{\bar{v}_A}{c} \right)},  \frac{-\bar{v}_A \Delta t_A}{\left(1 - \frac{\bar{v}_A}{c} \right)}, 0, 0 \right]
+\end{gather*}
+Since the time component is written according to the $A$'s reference frame, i.e. the proper time of $A$, the time it will take for the pulse to reach the station after lunch $(\Delta \tau_A)_S$ is given by
+\begin{gather*}
+(\Delta \tau_A)_S = t'_{S}(\lambda_{Sc}) - t'_{S}(0) = \frac{\Delta t_A}{\left(1 - \frac{\bar{v}_A}{c} \right)} ~~(= 5 \Delta t_A > \Delta t_A)
+\end{gather*}
+In similar manner, we can compute the time it will take for the pulse to reach the spaceship $B$ after lunch $(\Delta \tau_A)_B$.
+Here, the point where those two worldlines of the spaceship $B$ and the pulse intersect in the $A$'s reference frame is given by
+\begin{align*}
+&\left\{
+\begin{array}{l}
+t'_{B}(\lambda_{Bd}) = t'_{Lx}(\lambda_{Lxd})\\[1em]
+x'_{B}(\lambda_{Bd}) = x'_{Lx}(\lambda_{Lxd}) 
+\end{array}
+\right.\\[1em]
+\Leftrightarrow 
+&\left\{
+\begin{array}{l}
+\gamma_A \left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2}\right) \lambda_{Bd} = \lambda_{Lxd} + \Delta t_A\\[1em]
+\gamma_A \left( \bar{v}_B - \bar{v}_A\right) \lambda_{Bd} = -c \lambda_{Lxd}
+\end{array}
+\right.\\[1em]
+\Leftrightarrow
+&\left\{
+\begin{array}{l}
+\lambda_{Bd} = \frac{\Delta t_A}{\gamma_A \left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)}\\[1em]
+\lambda_{Lxd} = \frac{\left( \frac{\bar{v}_A}{c} - \frac{\bar{v}_B}{c}\right)}{\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)} \Delta t_A
+\end{array}
+\right.
+\end{align*}
+Therefore, the point where those two worldlines of the spaceship $B$ and the pulse intersect is
+\begin{align*}
+W'_B(\lambda_{Bd}) = W'_{Lx}(\lambda_{Lxd}) &= \left[\frac{\left( \frac{\bar{v}_A}{c} - \frac{\bar{v}_B}{c}\right)}{\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)} \Delta t_A + \Delta t_A, -c \frac{\left( \frac{\bar{v}_A}{c} - \frac{\bar{v}_B}{c}\right)}{\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)} \Delta t_A, 0, 0 \right]\\[1em]
+&= \left[\frac{\left( \left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right) + \frac{\bar{v}_A}{c} - \frac{\bar{v}_B}{c}\right)}{\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)} \Delta t_A, \frac{\left( \bar{v}_B - \bar{v}_A\right) \Delta t_A}{\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)}, 0, 0 \right]\\[1em]
+&= \left[\frac{\left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2}\right) \Delta t_A}{\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)}, \frac{\left( \bar{v}_B - \bar{v}_A\right) \Delta t_A}{\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)}, 0, 0 \right]
+\end{align*}
+Thus, the time it will take for the pulse to reach the spaceship $B$ after lunch $(\Delta \tau_A)_B$ is given by
+\begin{gather*}
+(\Delta \tau_A)_B = t'_{B}(\lambda_{Bc}) - t'_{B}(0) = \frac{\left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2}\right) \Delta t_A}{\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)} ~~(\approx 18.5 \Delta t_A > (\Delta \tau_A)_S > \Delta t_A)
+\end{gather*}
+With a bit more attention, we can compute the time it will take for the pulse to reach the spaceship $C$ after lunch $(\Delta \tau_A)_C$.
+The worldline of the emitted pulse of light which will eventually reach to the spaceship $C$ after the time $(\Delta \tau_A)_C$ in the $x$-$y$ plane(, i.e. $\theta = \frac{\pi}{2}$), according to the $A$'s reference frame, is given by
+\begin{gather*}
+W'_{L(\frac{\pi}{2},\varphi)}(\lambda_{L(\frac{\pi}{2}, \varphi)}) = \left[\lambda_{L(\frac{\pi}{2},\varphi)} + \Delta t_A, c \cos{\varphi} \cdot \lambda_{L(\frac{\pi}{2},\varphi)}, c \sin{\varphi} \cdot \lambda_{L(\frac{\pi}{2},\varphi)}, 0 \right]
+\end{gather*}
+Therefore, at a certain angle $\varphi_f$, the pulse will reach to the spaceship $C$, and the point where those two worldlines of the spaceship $C$ and the pulse intersect in the $A$'s reference frame is given by
+\begin{align*}
+&\left\{
+\begin{array}{l}
+t'_{C}(\lambda_{Cf}) = t'_{L(\frac{\pi}{2},\varphi_f)}(\lambda_{L(\frac{\pi}{2},\varphi_f)})\\[1em]
+x'_{C}(\lambda_{Cf}) = x'_{L(\frac{\pi}{2},\varphi_f)}(\lambda_{L(\frac{\pi}{2},\varphi_f)})\\[1em]
+y'_{C}(\lambda_{Cf}) = y'_{L(\frac{\pi}{2},\varphi_f)}(\lambda_{L(\frac{\pi}{2},\varphi_f)}) 
+\end{array}
+\right.\\[1em]
+\Leftrightarrow
+&\left\{
+\begin{array}{l}
+\gamma_A \lambda_{Cf} = \lambda_{L(\frac{\pi}{2},\varphi_f)} + \Delta t_A\\[1em]
+- \gamma_A \bar{v}_A \lambda_{Cf} = c \cos{\varphi_f} \cdot \lambda_{L(\frac{\pi}{2},\varphi_f)}\\[1em]
+\bar{v}_C \lambda_{Cf} = c \sin{\varphi_f} \cdot \lambda_{L(\frac{\pi}{2},\varphi_f)}
+\end{array}
+\right.\\[1em]
+\Leftrightarrow 
+&\left\{
+\begin{array}{l}
+\lambda_{L(\frac{\pi}{2},\varphi_f)} = \frac{- \Delta t_A - \sqrt{\left(\Delta t_A\right)^2 - \alpha \left(\Delta t_A\right)^2}}{\alpha} = \frac{1 + \sqrt{1 - \alpha}}{(-\alpha)} \Delta t_A \approx 9.57 \Delta t_A > 0\\[1em]
+\lambda_{Cf} = \sqrt{\frac{1}{\gamma_A^2} \left( 1 - \alpha \right) \left(\frac{1 + \sqrt{1 - \alpha}}{(-\alpha)} \Delta t_A \right)^2} = \frac{\sqrt{1 - \alpha} \left( 1 + \sqrt{1 - \alpha} \right)}{\gamma_A (-\alpha)} \Delta t_A  \approx 6.34 \Delta t_A > 0\\[1em]
+\cos{\varphi_f} = - \frac{\gamma_A \bar{v}_A}{c} \frac{\lambda_{Cf}}{\lambda_{L(\frac{\pi}{2},\varphi_f)}} = - \frac{\bar{v}_A}{c} \sqrt{1 - \alpha} \approx -0.88\\[1em]
+\sin{\varphi_f} = \frac{\bar{v}_C}{c} \frac{\lambda_{Cf}}{\lambda_{L(\frac{\pi}{2},\varphi_f)}} = \frac{1}{\gamma_A} \frac{\bar{v}_C}{c} \sqrt{1 - \alpha} \approx 0.46 < 0\\[1em]
+\left(\varphi_f \approx 151.6^{\circ}\right)
+\end{array}
+\right.
+\end{align*}
+where I introduced a dimensionless constant $\alpha$, defined by
+\begin{gather*}
+\alpha = 1 - \frac{\gamma_A^2 c^2}{\gamma_A^2 \bar{v}_A^2 + \bar{v}_C^2} \approx - 0.22 < 0
+\end{gather*}
+Therefore, the point where those two worldlines of the spaceship $C$ and the pulse intersect is
+\begin{align*}
+W'_C(\lambda_{Cf}) &= W'_{L(\frac{\pi}{2},\varphi_f)}(\lambda_{L(\frac{\pi}{2},\varphi_f)}) \\[1em]
+&=  \left[\frac{\sqrt{1 - \alpha} \left( 1 + \sqrt{1 - \alpha} \right)}{(-\alpha)} \Delta t_A, - \bar{v}_A \frac{\sqrt{1 - \alpha} \left( 1 + \sqrt{1 - \alpha} \right)}{(-\alpha)} \Delta t_A, \bar{v}_C \frac{\sqrt{1 - \alpha} \left( 1 + \sqrt{1 - \alpha} \right)}{\gamma_A (-\alpha)} \Delta t_A, 0 \right]
+\end{align*}
+Thus, the time it will take for the pulse to reach the spaceship $C$ after lunch $(\Delta \tau_A)_C$ is given by
+\begin{gather*}
+(\Delta \tau_A)_C = t'_{C}(\lambda_{Cf}) - t'_{C}(0) = \frac{\sqrt{1 - \alpha} \left( 1 + \sqrt{1 - \alpha} \right)}{(-\alpha)} \Delta t_A ~~(\approx 10.57 \Delta t_A > \Delta t_A)
+\end{gather*}
+(5)
+By performing the Lorentz transformation of the time component from the $A$'s reference frame into the space station's reference frame, one can get the time it will take for that pulse to reach the station, as measured by the observers at the space station $(\Delta \tau_S)_S$ as follows (since $t = 0$ is common in the two observers). Let 
+\begin{gather*}
+\bar{v}'_S = - \bar{v}_A, ~\gamma'_S = \left(1 - \frac{\bar{v}^{'2}_S}{c^2} \right)^{-1/2} = \left(1 - \frac{\bar{v}_A^2}{c^2} \right)^{-1/2}
+\end{gather*}
+Then, 
+\begin{align*}
+(\Delta \tau_S)_S &= \gamma'_S \left( t'(\lambda_{Sc}) - \frac{\bar{v}'_S x'(\lambda_{Sc})}{c^2}\right) = \frac{1}{\sqrt{1 - \frac{\bar{v}_A^2}{c^2}}} \left( \frac{\Delta t_A}{\left(1 - \frac{\bar{v}_A}{c} \right)} - \frac{\bar{v}'_S \frac{-\bar{v}_A \Delta t_A}{\left(1 - \frac{\bar{v}_A}{c} \right)}}{c^2}\right)\\[1em]
+&= \frac{\Delta t_A}{\sqrt{1 - \frac{\bar{v}_A^2}{c^2}}\left(1 - \frac{\bar{v}_A}{c}\right)} \left( 1 - \frac{\bar{v}_A^2}{c^2}\right) = \sqrt{\frac{1 + \frac{\bar{v}_A}{c}}{1 - \frac{\bar{v}_A}{c}}} \Delta t_A = 3 \Delta t_A
+\end{align*}
+Similarly, by performing the appropriate Lorentz transformation, one can get the time it will take for that pulse to reach the spaceship $B$, as measured by the observers at the spaceship $B$, $(\Delta \tau_B)_B$. Let 
+\begin{gather*}
+\bar{v}'_B = \frac{\bar{v}_B - \bar{v}_A}{1 - \frac{\bar{v}_A \bar{v}_B}{c^2}},~ \gamma'_B = \left(1 - \frac{\bar{v}^{'2}_B}{c^2} \right)^{-1/2}  = \left(1 - \frac{\left(\bar{v}_B - \bar{v}_A\right)^2}{c^2 \left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2} \right)^2} \right)^{-1/2}
+\end{gather*}
+\begin{align*}
+(\Delta \tau_B)_B &= \gamma'_B \left( t'(\lambda_{Bd}) - \frac{\bar{v}'_B x'(\lambda_{Bd})}{c^2}\right) \\[1em]
+&= \frac{1}{\sqrt{1 - \frac{\left(\bar{v}_B - \bar{v}_A\right)^2}{c^2 \left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2} \right)^2}}} \left(\frac{\left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2}\right) \Delta t_A}{\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)} - \frac{\frac{\bar{v}_B - \bar{v}_A}{1 - \frac{\bar{v}_A \bar{v}_B}{c^2}} \frac{\left( \bar{v}_B - \bar{v}_A\right) \Delta t_A}{\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)}}{c^2}\right)\\[1em]
+&= \frac{1}{\sqrt{1 - \frac{\left(\bar{v}_B - \bar{v}_A\right)^2}{c^2 \left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2} \right)^2}}\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)} \left( \left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2}\right) - \frac{\left( \bar{v}_B - \bar{v}_A\right)^2}{c^2 \left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2}\right)} \right) \Delta t_A\\[1em]
+&= \frac{\left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2}\right)}{\sqrt{1 - \frac{\left(\bar{v}_B - \bar{v}_A\right)^2}{c^2 \left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2} \right)^2}}\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)} \left( 1 - \frac{\left( \bar{v}_B - \bar{v}_A\right)^2}{c^2 \left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2}\right)^2} \right) \Delta t_A\\[1em]
+&= \frac{\sqrt{\left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2}\right)^2 - \frac{\left( \bar{v}_B - \bar{v}_A\right)^2}{c^2}}}{\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)} \Delta t_A = \sqrt{\frac{\left( 1 - \frac{\bar{v}_B}{c}\right) \left( 1 + \frac{\bar{v}_A}{c}\right)}{\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)}} \Delta t_A = 6 \Delta t_A
+\end{align*}
+Similarly, by performing the appropriate Lorentz transformation, one can get the time it will take for that pulse to reach the spaceship $C$, as measured by the observers at the spaceship $C$, $(\Delta \tau_C)_C$. However, you need to transform twice for $x$-direction and $y$-direction by using the same transformation formula...\\
+(6) The two events, according to A's reference frame is given by
+\begin{align*}
+W'_B(\lambda_{Bd}) & \left[\frac{\left(1 - \frac{\bar{v}_A \bar{v}_B}{c^2}\right) \Delta t_A}{\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)}, \frac{\left( \bar{v}_B - \bar{v}_A\right) \Delta t_A}{\left( 1 + \frac{\bar{v}_B}{c}\right) \left( 1 - \frac{\bar{v}_A}{c}\right)}, 0, 0 \right]\\[1em]
+&\approx \left[18.5 \Delta t_A, - 17.5 c \Delta t_A, 0, 0\right]
+\end{align*}
+\begin{align*}
+W'_C(\lambda_{Cf}) &=  \left[\frac{\sqrt{1 - \alpha} \left( 1 + \sqrt{1 - \alpha} \right)}{(-\alpha)} \Delta t_A, - \bar{v}_A \frac{\sqrt{1 - \alpha} \left( 1 + \sqrt{1 - \alpha} \right)}{(-\alpha)} \Delta t_A, \bar{v}_C \frac{\sqrt{1 - \alpha} \left( 1 + \sqrt{1 - \alpha} \right)}{\gamma_A (-\alpha)} \Delta t_A, 0 \right]\\[1em]
+&\approx \left[ 10.57 \Delta t_A, 8.45 c \Delta t_A, 4.44 c \Delta t_A, 0\right]
+\end{align*}
+Therefore, between those two events,
+\begin{align*}
+(\Delta s)^2 &= -c^2 (\Delta t)^2 + + (\Delta x)^2 + (\Delta y)^2 + (\Delta z)^2 \\[1em]
+&= \Delta c^2 \Delta t_A^2 \left(- (18.5 - 10.57)^2 + (- 17.5 - 8.45)^2 + (0 - 4.44)^2 + 0^2\right) \approx 630.23 c^2 \Delta t_A^2 > 0
+\end{align*}
+Therefore, it is spacelike, i.e. causally disconnected, and the proper length between them is given by $\Delta L = \sqrt{- (\Delta s)^2} \approx 25.10 c \Delta t_A$.
+\end{document}

@@ -1,0 +1,211 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{derivative}
+\usepackage{bm}
+\usepackage{comment}
+\usepackage{cancel}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{tikz}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+\title{General Relativity: Homework 8}
+\author{Koichiro Takahashi}
+\maketitle
+
+\section*{Problem.1}
+(i)
+From the definition,
+\begin{align}
+b_{\mathrm{min}} = 5 \cdot 10^6 \sin\left(\frac{0.8}{360} \cdot 2 \pi\right) \mathrm{km} \approx 69811 ~\mathrm{km} >> R_{\mathrm{WD}}
+\end{align}
+(ii) From the formula in the lecture notes,
+\begin{align}
+\hat{\alpha}(M_{\mathrm{WD}}) = \frac{4 G M_{\mathrm{WD}}}{b_{\mathrm{min}} c^2}
+\end{align}
+Therefore, for $M_{\mathrm{WD}} = M_{\odot}$,
+\begin{align}
+\hat{\alpha}(M_{\odot}) = \frac{4 G M_{\odot}}{b_{\mathrm{min}} c^2} = \frac{4 \cdot 6.67 \cdot 10^{-11} \cdot 2 \cdot 10^{30}}{69811 \cdot 10^{3} (3\cdot 10^{8})^2} \approx 8.5 \cdot 10^{-5}
+\end{align}
+(iii)
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt 
+\begin{center}
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da4765379940416383] 
+\draw    (108,171) -- (527,171) ;
+%Straight Lines [id:da7588286201378969] 
+\draw    (108,171) -- (318,93) ;
+%Straight Lines [id:da2075067989823438] 
+\draw    (318,93) -- (527,171) ;
+%Straight Lines [id:da22222646969178417] 
+\draw    (108,171) -- (319,225) ;
+%Straight Lines [id:da09932813884757064] 
+\draw    (319,225) -- (527,171) ;
+%Straight Lines [id:da8260882886868066] 
+\draw    (318,93) -- (319,225) ;
+%Straight Lines [id:da3041095195356587] 
+\draw    (153,41) -- (318,93) ;
+
+% Text Node
+\draw (275,85.4) node [anchor=north west][inner sep=0.75pt]    {$\hat{\alpha }$};
+% Text Node
+\draw (461,149.4) node [anchor=north west][inner sep=0.75pt]    {$\alpha $};
+% Text Node
+\draw (177,146.4) node [anchor=north west][inner sep=0.75pt]    {$\hat{\alpha } \ -\ \alpha $};
+% Text Node
+\draw (93,159) node [anchor=north west][inner sep=0.75pt]   [align=left] {P};
+% Text Node
+\draw (315,66.4) node [anchor=north west][inner sep=0.75pt]    {$I$};
+% Text Node
+\draw (322,152) node [anchor=north west][inner sep=0.75pt]   [align=left] {C};
+% Text Node
+\draw (534,160.4) node [anchor=north west][inner sep=0.75pt]    {$E$};
+% Text Node
+\draw (306,231) node [anchor=north west][inner sep=0.75pt]   [align=left] {WD};
+% Text Node
+\draw (203,175.4) node [anchor=north west][inner sep=0.75pt]    {$\gamma \ =\ 0.8^{\circ }$};
+\end{tikzpicture}
+\end{center}
+To consider the lensing by the two straight line, with an instantaneous change in the direction of propagation of the photons right as they pass by the white dwarf, we drew the figure above.\\
+Here, we have to calculate $PI$ and $IE$.
+\begin{align}
+PC = PI \cdot \cos{\hat{\alpha} - \alpha}, \quad PC = d_{\mathrm{Pulser-WD}} \cos{\gamma} \approx d_{\mathrm{Pulser-WD}} \Rightarrow PI = \frac{d_{\mathrm{Pulser-WD}}}{\cos{\hat{\alpha} - \alpha}}
+\end{align}
+Also,
+\begin{align}
+CE = IE \cos{\alpha} = PE - PC = d_{\mathrm{Earth-WD}} - d_{\mathrm{Pulser-WD}} \Rightarrow IE = \frac{d_{\mathrm{Earth-WD}} - d_{\mathrm{Pulser-WD}}}{\cos{\alpha}}
+\end{align}
+And you can calculate $\alpha$ and $\hat{\alpha}$ from the lensing formula. And you can calculate the corrected Shapiro time-delay.\\
+(iv) From the formula in the lecture notes,
+\begin{align}
+\Delta_{\mathrm{max}}(M_{\mathrm{WD}}) &= \frac{2 G M_{\mathrm{WD}}}{c^3} \left(\int^{d_{\mathrm{Earth-WD}}}_{- d_{\mathrm{Pulser-WD}}} dx \frac{1}{\sqrt{x^2 + b_{\mathrm{min}}^2}} - \int^{d_{\mathrm{Earth-WD}}}_{d_{\mathrm{Pulser-WD}}} dx \frac{1}{\sqrt{x^2 + b_{\mathrm{min}}^2}}\right)\\
+&= \frac{2 G M_{\mathrm{WD}}}{c^3} \int^{d_{\mathrm{Pulser-WD}}}_{- d_{\mathrm{Pulser-W}}} dx \frac{1}{\sqrt{x^2 + b_{\mathrm{min}}^2}} \\
+&= \frac{4 G M_{\mathrm{WD}}}{c^3} \int^{d_{\mathrm{Pulser-WD}}}_{0} dx \frac{1}{\sqrt{x^2 + b_{\mathrm{min}}^2}} \\
+&= \frac{4 G M_{\mathrm{WD}}}{c^3} \operatorname{arsinh}\left(\frac{d_{\mathrm{Pulser-WD}}}{b_{\mathrm{min}}}\right)
+\end{align}
+For $M_{\mathrm{WD}} = M_{\odot}$,
+\begin{align}
+\Delta_{\mathrm{max}}(M_{\odot}) &= \frac{4 G M_{\odot}}{c^3} \operatorname{arsinh}\left(\frac{d_{\mathrm{Pulser-WD}}}{b_{\mathrm{min}}}\right) \\
+&\approx \frac{4 6.67 \cdot 10^{-11} \cdot 2 \cdot 10^{30}}{(3 \cdot 10^{8})^3} \cdot \operatorname{arsinh}\left(\frac{5 \cdot 10^{9}}{69811 \cdot 10^{3}}\right) ~\mathrm{s}
+\approx 9.8064 \cdot 10^{–5} ~\mathrm{s}
+\end{align}
+(v) In the second configuration, since you move the whole binary system by $d_{\mathrm{Pulser-WD}}$, the change of the Shapiro time-delay is then
+\begin{align}
+\Delta_{\mathrm{change}}(M_{\mathrm{WD}}) &= \frac{2 G M_{\mathrm{WD}}}{c^3} \left(\int^{d_{\mathrm{Earth-WD}} + d_{\mathrm{Pulser-WD}}}_{d_{\mathrm{Pulser-WD}}} dx \frac{1}{\sqrt{x^2 + b_{\mathrm{min}}^2}} - \int^{d_{\mathrm{Earth-WD}}}_{d_{\mathrm{Pulser-WD}}} dx \frac{1}{\sqrt{x^2 + b_{\mathrm{min}}^2}}\right)\\
+&= \frac{2 G M_{\mathrm{WD}}}{c^3} \int^{d_{\mathrm{Earth-WD}} + d_{\mathrm{Pulser-WD}}}_{d_{\mathrm{Earth-WD}}} dx \frac{1}{\sqrt{x^2 + b_{\mathrm{min}}^2}} \\
+&= \frac{2 G M_{\mathrm{WD}}}{c^3} \left(\int^{d_{\mathrm{Earth-WD}} + d_{\mathrm{Pulser-WD}}}_{0} dx \frac{1}{\sqrt{x^2 + b_{\mathrm{min}}^2}} - \int^{d_{\mathrm{Earth-WD}}}_{0} dx \frac{1}{\sqrt{x^2 + b_{\mathrm{min}}^2}} \right) \\
+&= \frac{2 G M_{\mathrm{WD}}}{c^3} \left(\operatorname{arsinh}\left(\frac{d_{\mathrm{Earth-WD}} + d_{\mathrm{Pulser-WD}}}{b_{\mathrm{min}}}\right) -  \operatorname{arsinh}\left(\frac{d_{\mathrm{Earth-WD}}}{b_{\mathrm{min}}}\right) \right)
+\end{align}
+Here, since the distance between the Earth and the center of mass of the binary
+\begin{align}
+d_{\mathrm{Earth-binary}} \sim 1.2 \mathrm{kpc} \approx 3.7 \cdot 10^{19} \mathrm{m}
+\end{align}
+so that
+\begin{align}
+d_{\mathrm{Earth-WD}} = d_{\mathrm{Earth-binary}} + \frac{d_{\mathrm{Pulser-WD}}}{2}
+\end{align}
+Therefore, for $M_{\mathrm{WD}} = M_{\odot}$,
+\begin{align}
+&\Delta_{\mathrm{change}}(M_{\odot}) \nonumber\\
+&= \frac{2 G M_{\odot}}{c^3} \left(\operatorname{arsinh}\left(\frac{d_{\mathrm{Earth-binary}} + \frac{3}{2}d_{\mathrm{Pulser-WD}}}{b_{\mathrm{min}}}\right) -  \operatorname{arsinh}\left(\frac{d_{\mathrm{Earth-binary}} + \frac{1}{2} d_{\mathrm{Pulser-WD}}}{b_{\mathrm{min}}}\right) \right) \nonumber \\
+&= \frac{2 \cdot 6.67 \cdot 10^{-11} \cdot 2 \cdot 10^{30}}{(3 \cdot 10^{8})^3} \left(\operatorname{arsinh}\left(\frac{3.7 \cdot 10^{19} + \frac{3}{2} \cdot 5 \cdot 10^{9}}{69811 \cdot 10^{3}}\right) -  \operatorname{arsinh}\left(\frac{3.7 \cdot 10^{19} + \frac{1}{2} 5 \cdot 10^{9}}{69811 \cdot 10^{3}}\right) \right) \\
+&\approx 1.34 \cdot 10^{-15} \mathrm{s}
+\end{align}
+(vi) By including the change of position and the Shapiro time-delay, the total delay $\Delta_{\mathrm{delay}}$ is going to be
+\begin{align}
+&\Delta_{\mathrm{delay}} = \frac{d_{\mathrm{Pulser-WD}}}{c} + \frac{2 G M_{\odot}}{c^3} \int^{d_{\mathrm{Earth-WD}}}_{- d_{\mathrm{Pulser-WD}}} dx \frac{1}{\sqrt{x^2 + b_{\mathrm{min}}^2}} \\
+&\approx  \frac{5 \cdot 10^{9}}{3 \cdot 10^{8}} + \frac{2 \cdot 6.67 \cdot 10^{-11} \cdot 2 \cdot 10^{30}}{(3 \cdot 10^{8})^3} \left( \operatorname{arsinh}\left(\frac{3.7 \cdot 10^{19}}{69811 \cdot 10^{3}}\right) - \operatorname{arsinh}\left(\frac{5 \cdot 10^{9}}{69811 \cdot 10^{3}}\right) \right) \nonumber \\
+&\approx 16.6667 + 0.0002246 = 16.6669246 ~\mathrm{s}
+\end{align}
+
+\section*{Problem.2}
+The formula for Shapiro time-delay is given by
+\begin{align}
+\Delta t = \frac{2 G M}{c^3} \int^{x_{f}}_{x_{i}} dx \frac{1}{\sqrt{x^2 + b_{\mathrm{min}}^2}}
+\end{align}
+Here, the distance between the Mercury and the Sun, and the distance between the Earth and the Sun are given, on average, respectively, as
+\begin{align}
+d_{\mathrm{Mercury-Sun}} \approx 57.9 \cdot 10^{9} \mathrm{m}, \quad d_{\mathrm{Earth-Sun}} \approx 149.6 \cdot 10^{9} \mathrm{m}
+\end{align}
+When the distance between the Mercury and the Earth is minimum, so that when the Mercury, the Earth, and the Sun are aligned,
+\begin{align}
+x_{i} =  d_{\mathrm{Mercury-Sun}},  x_{f} = d_{\mathrm{Earth-Sun}}
+\end{align}
+When the distance between the Mercury and the Earth is maximum, so that they're at superior conjunction with the Sun,
+\begin{align}
+x_{i} =  - d_{\mathrm{Mercury-Sun}},  x_{f} = d_{\mathrm{Earth-Sun}}
+\end{align}
+Therefore, the maximum change in the value of the Shapiro delay is given by
+\begin{align}
+\Delta_{\mathrm{max}} (\Delta t) &= \frac{2 G M_{\odot}}{c^3} \left(\int^{d_{\mathrm{Earth-Sun}}}_{- d_{\mathrm{Mercury-Sun}}} dx \frac{1}{\sqrt{x^2 + b_{\mathrm{min}}^2}} - \int^{d_{\mathrm{Earth-Sun}}}_{d_{\mathrm{Mercury-Sun}}} dx \frac{1}{\sqrt{x^2 + b_{\mathrm{min}}^2}}\right)\\
+&= \frac{2 G M_{\odot}}{c^3} \int^{d_{\mathrm{Mercury-Sun}}}_{- d_{\mathrm{Mercury-Sun}}} dx \frac{1}{\sqrt{x^2 + b_{\mathrm{min}}^2}} \\
+&= \frac{4 G M_{\odot}}{c^3} \int^{d_{\mathrm{Mercury-Sun}}}_{0} dx \frac{1}{\sqrt{x^2 + b_{\mathrm{min}}^2}} \\
+&= \frac{4 G M_{\odot}}{c^3} \operatorname{arsinh}\left(\frac{d_{\mathrm{Mercury-Sun}}}{b_{\mathrm{min}}}\right) \approx \frac{4 6.67 \cdot 10^{-11} \cdot 2 \cdot 10^{30}}{(3 \cdot 10^{8})^3} \cdot 7.41382 ~\mathrm{s} \approx 0.0001465~\mathrm{s}
+\end{align}
+
+\section*{Problem.3}
+Here, the Earth’s mass $M \sim 10^{24}$ kg, the Earth’s radius $R \sim 10^{6}$ m, so that the Earth’s average mass density $\rho_m \sim \frac{M}{R^3} \sim 10^{6} ~\mathrm{kg/m^3}$. Here, the Earth's internal pressure $P \sim 10^{11}$. In the Earth's own inertial reference frame, $u^{\mu} = \left(1, 0, 0, 0\right)$,
+\begin{align}
+T^{\mu\nu} \approx \rho u^{\mu} u^{\nu} =
+\begin{pmatrix}
+\rho & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+\end{pmatrix}
+\end{align}
+where
+\begin{align}
+\rho = \rho_m c^2 \sim 10^{6} \cdot (10^{8})^2 \sim 10^{22} \mathrm{J}
+\end{align}
+Note that we ignored the internal pressure term since $\rho/P \ll 1$. \\
+(ii) Here, the gravitational constant  $G \sim 10^{-11} ~\mathrm{m^3/kg~s^2}$, the solar mass  $M_\odot \sim 10^{30}$ kg, the Earth’s orbital radius  $r \sim 10^{11}$ m.
+\begin{align}
+v = \sqrt{\frac{G M_\odot}{r}} \sim \left( \frac{10^{-11} \cdot 10^{30}}{10^{11}} \right)^{1/2} \, \mathrm{m/s} \sim 10^{4} \, \mathrm{m/s}
+\end{align}
+so that 
+\begin{align}
+\frac{v}{c} \sim \frac{10^{4}}{10^{8}} = 10^{-4}
+\end{align}
+Thus, 
+\begin{align}
+\gamma = \frac{1}{\sqrt{1 - (v/c)^2}} \sim 1
+\end{align}
+In the center-of-mass frame of the solar system,  $u^{\mu} = \left(1, 0, 0, 0\right)$
+
+
+\begin{align}
+T^{\mu\nu} \sim \rho 
+\begin{pmatrix}
+1 & \dfrac{v_x}{c} & \dfrac{v_y}{c} & 0 \\
+\dfrac{v_x}{c} & 0 & 0 & 0 \\
+\dfrac{v_y}{c} & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+\end{pmatrix}
+= 10^{22}
+\begin{pmatrix}
+1 & 10^{-4} & 10^{-4} & 0 \\
+10^{-4} & 0 & 0 & 0 \\
+10^{-4} & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+\end{pmatrix}
+= 
+\begin{pmatrix}
+10^{22} & 10^{18} & 10^{18} & 0 \\
+10^{18} & 0 & 0 & 0 \\
+10^{18} & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+\end{pmatrix}
+\end{align}
+
+
+\end{document}

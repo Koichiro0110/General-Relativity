@@ -1,0 +1,331 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{derivative}
+\usepackage{bm}
+\usepackage{comment}
+\usepackage{cancel}
+\usepackage{xcolor}
+\usepackage{float}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+\title{General Relativity: Homework 10}
+\author{Koichiro Takahashi}
+\maketitle
+
+\section*{Problem.1}
+Here, the linearized gravity
+\begin{align}
+g_{\mu \nu} = \eta_{\mu \nu} + h_{\mu \nu}
+\end{align}
+where $\eta_{\mu \nu}$ is the Minkowski metric and
+\begin{align}
+h_{\mu \nu} = \epsilon
+\begin{pmatrix}
+- \cos\left(t - y\right) & 0 & 2 \cos\left(t - y\right) & 2 \sin\left(t - y\right)\\
+0 & - \cos\left(t - y\right) & 0 & 0 \\
+2 \cos\left(t - y\right) & 0 & -3 \cos\left(t - y\right) & -2 \sin\left(t - y\right) \\
+2 \sin\left(t - y\right) & 0 & -2 \sin\left(t - y\right) & \cos\left(t - y\right)
+\end{pmatrix}
+\end{align}
+where $\epsilon \ll 1$.\\
+Under a coordinate transformation
+\begin{align}
+x^{\mu'} = x^{\mu} + \zeta^{\mu}
+\end{align}
+the metric perturbation transform as
+\begin{align}
+h'_{\mu \nu} = h_{\mu \nu} - \partial_{\mu} \zeta_{\nu} - \partial_{\nu} \zeta_{\mu}
+\end{align}
+Clearly, $h'_{\mu \nu} = h'_{\nu \mu}$ due to $h_{\mu \nu} = h_{\nu \mu}$. In principle, $\zeta_{\nu} = \zeta_{\nu}(t,x,y,z).$ To keep $h'_{xx}, h'_{xz}, h'_{zz}$ unchanged, we need
+\begin{align}
+h'_{xx}= h_{xx} = h_{xx} - 2 \partial_{x} \zeta_{x} = 0 &\Leftrightarrow \partial_{x} \zeta_{x} = 0 \\
+h'_{xz} = h'_{zx} = h_{xz} = h_{xz} - \partial_{x} \zeta_{z} - \partial_{z} \zeta_{x} &\Leftrightarrow  \partial_{z} \zeta_{x} = - \partial_{x} \zeta_{z} \\
+h'_{zz} = h_{zz} = h_{zz} - 2 \partial_{z} \zeta_{z} &\Leftrightarrow \partial_{z} \zeta_{z} = 0
+\end{align}
+Also, all other components of $h'_{\mu \nu}$ to zero, so that
+\begin{align}
+0 = h'_{t t} = h_{tt} - 2 \partial_{t} \zeta_{t} &\Leftrightarrow \partial_{t} \zeta_{t} = - \frac{\epsilon}{2} \cos\left(t - y\right) \\
+0 = h'_{y y} = h_{yy} - 2 \partial_{y} \zeta_{y} &\Leftrightarrow \partial_{y} \zeta_{y} = - \frac{3 \epsilon}{2} \cos\left(t - y\right)
+\end{align}
+Therefore, we can choose them as independent of $x, z$,
+\begin{align}
+\zeta_{t} &= - \frac{\epsilon}{2} \sin\left(t - y\right) \\
+\zeta_{y} &= \frac{3 \epsilon}{2} \sin\left(t - y\right)
+\end{align}
+Then,
+\begin{align}
+h'_{t y} = h'_{y t} &= h_{ty} - \partial_{t} \zeta_{y} - \partial_{y} \zeta_{t} = 2 \epsilon \cos\left(t - y\right) - \frac{3 \epsilon}{2} \cos\left(t - y\right) - \frac{\epsilon}{2} \cos\left(t - y\right) = 0
+\end{align}
+Now, to determine $\zeta_{x}, \zeta_{z}$,
+\begin{align}
+0 = h'_{t x} = h'_{x t} &= h_{tx} - \partial_{t} \zeta_{x} - \partial_{x} \zeta_{t} = - \partial_{t} \zeta_{x} \\
+0 = h'_{y x} = h'_{x y} &= h_{yx} - \partial_{y} \zeta_{x} - \partial_{x} \zeta_{y} = - \partial_{y} \zeta_{x} \\
+0 = h'_{t z} = h'_{z t} &= h_{tz} - \partial_{t} \zeta_{z} - \partial_{z} \zeta_{t} = 2 \epsilon \sin\left(t - y\right) - \partial_{t} \zeta_{z} \\
+0 = h'_{y z} = h'_{z y} &= h_{yz} - \partial_{y} \zeta_{z} - \partial_{z} \zeta_{y} = - 2 \epsilon \sin\left(t - y\right) - \partial_{y} \zeta_{z}
+\end{align}
+Therefore, we can choose them as
+\begin{align}
+\zeta_{x} &= 0\\
+\zeta_{z} &= - 2 \epsilon \cos\left(t - y\right)
+\end{align}
+Then,
+\begin{align}
+h'_{x z} = h'_{z x} &= h_{xz} - \partial_{x} \zeta_{z} - \partial_{z} \zeta_{x} = 0
+\end{align}
+Therefore,
+\begin{align}
+\zeta_{t} &= - \frac{\epsilon}{2} \sin\left(t - y\right) \\
+\zeta_{x} &= 0\\
+\zeta_{y} &= \frac{3 \epsilon}{2} \sin\left(t - y\right) \\
+\zeta_{z} &= - 2 \epsilon \cos\left(t - y\right)
+\end{align}
+
+\section*{Problem.2}
+The quadrupole moment of the rod is given by
+\begin{align}
+I_{i j} &= \frac{M L^2}{12}
+\begin{pmatrix}
+1 & 0 & 0\\
+0 & \cos^2\left(\Omega t\right) & \sin\left(\Omega t\right) \cos\left(\Omega t\right) \\
+0 & \sin\left(\Omega t\right) \cos\left(\Omega t\right) & \sin^2\left(\Omega t\right)
+\end{pmatrix}
+\\
+&= \frac{M L^2}{24}
+\begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 + \cos\left(2 \Omega t\right) & \sin\left(2 \Omega t\right)\\
+0 & \sin\left(2 \Omega t\right) & 1 - \cos\left(2 \Omega t\right)
+\end{pmatrix}
+\\
+\end{align}
+(i) Here, by the quadrupole formula
+\begin{align}
+\bar{h}_{i j}(t, \bar{x}) &= \frac{2 G}{D} \frac{d^2}{dt^2} I_{i j}(t - D) \\
+&= \frac{G M L^2}{12 D}
+\frac{d^2}{dt^2}
+\begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 + \cos\left(2 \Omega t\right) & \sin\left(2 \Omega t\right)\\
+0 & \sin\left(2 \Omega t\right) & 1 - \cos\left(2 \Omega t\right)
+\end{pmatrix}
+\\
+&= \frac{\Omega^2 G M L^2}{3 D}
+\begin{pmatrix}
+0 & 0 & 0\\
+0 & - \cos\left(2 \Omega (t-D)\right) & - \sin\left(2 \Omega (t-D)\right)\\
+0 & - \sin\left(2 \Omega (t-D)\right) &  \cos\left(2 \Omega (t-D)\right)
+\end{pmatrix}
+\end{align}
+(ii) Here, the observer is on the $y$-axis, so that $D = y$, 
+\begin{align}
+\bar{h}_{i j}(t, \bar{x}) &= \frac{\Omega^2 G M L^2}{3 y}
+\begin{pmatrix}
+0 & 0 & 0\\
+0 & - \cos\left(2 \Omega (t-y)\right) & - \sin\left(2 \Omega (t-y)\right)\\
+0 & - \sin\left(2 \Omega (t-y)\right) &  \cos\left(2 \Omega (t-y)\right)
+\end{pmatrix}
+\end{align}
+Up to the order of $\epsilon$, $h^{\mu \nu} = \eta^{\mu \alpha} \eta^{\nu \beta} h_{\alpha \beta}$. Thus,
+\begin{align}
+h^{tt} = h_{tt}, \quad h^{ij} = h_{ij}, \quad h^{ti} = - h_{ti}
+\end{align}
+so that
+\begin{align}
+\bar{h}^{\mu \nu}(t, \bar{x}) &=
+\begin{pmatrix}
+\bar{h}^{tt} & \bar{h}^{tx} & \bar{h}^{ty} & \bar{h}^{tz}\\
+\bar{h}^{xt} & 0 & 0 & 0\\
+\bar{h}^{yt} & 0 & - \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & - \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right)\\
+\bar{h}^{zt} & 0 & - \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right) &  \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right)
+\end{pmatrix}
+\end{align}
+Using the Lorentz gauge,
+\begin{align}
+\partial_{\mu} \bar{h}^{\mu \nu} = 0
+\end{align}
+Note that $\bar{h}^{i j}$ is independent of $x, z$, also we ignore $y$-dependence in the amplitude. Therefore,
+\begin{align}
+\partial_{t} \bar{h}^{tx} + \partial_{y} \bar{h}^{yx} = \partial_{t} \bar{h}^{tx} = 0
+\end{align}
+Thus, we can choose
+\begin{align}
+\bar{h}^{tx} = 0
+\end{align}
+Also,
+\begin{align}
+\partial_{t} \bar{h}^{ty} + \partial_{y} \bar{h}^{yy} &= \partial_{t} \bar{h}^{ty} - \frac{2 \Omega^3 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right) = 0\\
+& \Rightarrow \partial_{t} \bar{h}^{ty} = \frac{2 \Omega^3 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right)
+\end{align}
+Thus, we can choose
+\begin{align}
+\bar{h}^{ty} = - \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right)
+\end{align}
+Similarly,
+\begin{align}
+\partial_{t} \bar{h}^{tz} + \partial_{y} \bar{h}^{yz} &= \partial_{t} \bar{h}^{tz} + \frac{2 \Omega^3 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) = 0\\
+& \Rightarrow \partial_{t} \bar{h}^{tz} = - \frac{2 \Omega^3 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right)
+\end{align}
+Thus, we can choose
+\begin{align}
+\bar{h}^{tz} = - \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right)
+\end{align}
+Now, $\bar{h}^{t i}$ is also independent of $x, z$, also we ignore $y$-dependence in the amplitude. Hence, using $\bar{h}^{t i} = \bar{h}^{i t}$
+\begin{align}
+\partial_{t} \bar{h}^{tt} + \partial_{y} \bar{h}^{yt} &= \partial_{t} \bar{h}^{tt} + \partial_{y} \bar{h}^{ty} = \partial_{t} \bar{h}^{tt} - \frac{2 \Omega^3 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right) = 0\\
+& \Rightarrow \partial_{t} \bar{h}^{tt} = + \frac{2 \Omega^3 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right)
+\end{align}
+Thus, we can choose
+\begin{align}
+\bar{h}^{tt} = - \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right)
+\end{align}
+From all of the above,
+\begin{align}
+\bar{h}^{tt} &= - \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) \\
+\bar{h}^{tx} &= 0 \\
+\bar{h}^{ty} &= - \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) \\
+\bar{h}^{tz} &= - \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right)
+\end{align}
+(iii)
+\begin{align}
+\bar{h}^{\mu \nu}(t, \bar{x}) &=
+\begin{pmatrix}
+- \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & 0 & - \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & - \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right)\\
+0 & 0 & 0 & 0\\
+- \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & 0 & - \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & - \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right)\\
+- \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right) & 0 & - \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right) &  \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right)
+\end{pmatrix}
+\\
+\bar{h}_{\mu \nu}(t, \bar{x}) &=
+\begin{pmatrix}
+- \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & 0 & \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right)\\
+0 & 0 & 0 & 0\\
+\frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & 0 & - \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & - \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right)\\
+\frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right) & 0 & - \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right) &  \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right)
+\end{pmatrix}
+\end{align}
+Here,
+\begin{align}
+\bar{h}_{\mu \nu} &= h_{\mu \nu} - \frac{1}{2} \eta_{\mu \nu} h^{\alpha}_{~\alpha} \\
+\bar{h}^{\alpha}_{~\alpha} &= - h^{\alpha}_{~\alpha}
+\end{align}
+so that
+\begin{align}
+h_{\mu \nu} &= \bar{h}_{\mu \nu} + \frac{1}{2} \eta_{\mu \nu} \bar{h}^{\alpha}_{~\alpha}
+\end{align}
+Also,
+\begin{align}
+\bar{h}^{\mu}_{~\nu} &= \bar{h}^{\mu \alpha} \eta_{\alpha \nu} \\
+&=
+\begin{pmatrix}
+\frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & 0 & - \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & - \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right)\\
+0 & 0 & 0 & 0\\
+- \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & 0 & - \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & - \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right)\\
+- \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right) & 0 & - \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right) &  \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right)
+\end{pmatrix}
+\\
+\Rightarrow \bar{h}^{\alpha}_{~\alpha} &= \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right)
+\end{align}
+Therefore,
+\begin{align}
+&h_{\mu \nu} = \bar{h}_{\mu \nu} + \frac{1}{2} \eta_{\mu \nu} \bar{h}^{\alpha}_{~\alpha} \\
+&=
+\begin{pmatrix}
+\frac{\Omega^2 G M L^2}{6 y} \cos\left(2 \Omega (t-y)\right) & 0 & \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right)\\
+0 & \frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & 0 & 0\\
+\frac{\Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right) & 0 & \frac{\Omega^2 G M L^2}{6 y} \cos\left(2 \Omega (t-y)\right) & - \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right)\\
+\frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right) & 0 & - \frac{\Omega^2 G M L^2}{3 y} \sin\left(2 \Omega (t-y)\right) &  \frac{2 \Omega^2 G M L^2}{3 y} \cos\left(2 \Omega (t-y)\right)
+\end{pmatrix}
+\end{align}
+
+\section*{Problem.3}
+\begin{align}
+ds^2 = \frac{\alpha^2}{\cos^2{\chi}} \left( - dt^2 + d \chi^2 \right)
+\end{align}
+so that the metric is given by
+\begin{align}
+g_{\mu \nu} =
+\begin{pmatrix}
+- \frac{\alpha^2}{\cos^2{\chi}} & 0 \\
+0 & \frac{\alpha^2}{\cos^2{\chi}}
+\end{pmatrix}
+\end{align}
+(i)
+\begin{align}
+\partial_{\chi} g_{\mu \nu} =
+\begin{pmatrix}
+- \frac{2 \alpha^2 \sin{\chi}}{\cos^3{\chi}} & 0 \\
+0 & \frac{2 \alpha^2 \sin{\chi}}{\cos^3{\chi}}
+\end{pmatrix}
+\end{align}
+The Christoffel symbols are given by
+\begin{align}
+\Gamma^{\alpha}_{\mu \nu} = \frac{1}{2} g^{\alpha \sigma} \left(\partial_{\mu} g_{\nu \sigma} + \partial_{\nu} g_{\mu \sigma} - \partial_{\sigma} g_{\mu \nu} \right)
+\end{align}
+Particularly, for the diagonal metric,
+\begin{align}
+\Gamma^{\alpha}_{\mu \nu} = \frac{1}{2} g^{\alpha \alpha} \left(\partial_{\mu} g_{\nu \alpha} + \partial_{\nu} g_{\mu \alpha} - \partial_{\alpha} g_{\mu \nu} \right)
+\end{align}
+$\Rightarrow$
+\begin{align}
+\Gamma^{t}_{\mu \nu} &= \frac{1}{2} g^{tt} \left(\partial_{\mu} g_{\nu t} + \partial_{\nu} g_{\mu t} - \partial_{t} g_{\mu \nu} \right) \\
+&= \frac{1}{2} g^{tt} \left(\partial_{\mu} g_{\nu t} + \partial_{\nu} g_{\mu t} \right) \\
+\end{align}
+$\Rightarrow$
+\begin{align}
+\Gamma^{t}_{t \chi} = \Gamma^{t}_{\chi t} &= \frac{1}{2} g^{tt} \partial_{\chi} g_{t t} = \frac{1}{2} \frac{\cos^2{\chi}}{\alpha^2} \frac{2 \alpha^2 \sin{\chi}}{\cos^3{\chi}} = \tan{\chi}\\
+\end{align}
+and
+\begin{align}
+\Gamma^{\chi}_{\mu \nu} &= \frac{1}{2} g^{\chi \chi} \left(\partial_{\mu} g_{\nu \chi} + \partial_{\nu} g_{\mu \chi} - \partial_{\chi} g_{\mu \nu} \right)
+\end{align}
+$\Rightarrow$
+\begin{align}
+\Gamma^{\chi}_{\chi \chi} &= \frac{1}{2} g^{\chi \chi} \left(\partial_{\chi} g_{\chi \chi} + \partial_{\chi} g_{\chi \chi} - \partial_{\chi} g_{\chi \chi} \right) \\
+&= \frac{1}{2} g^{\chi \chi} \partial_{\chi} g_{\chi \chi} = \tan{\chi}
+\end{align}
+$\Rightarrow$
+\begin{align}
+\Gamma^{\chi}_{t t} &= \frac{1}{2} g^{\chi \chi} \left(\partial_{t} g_{t \chi} + \partial_{t} g_{t \chi} - \partial_{\chi} g_{t t} \right) \\
+&= - \frac{1}{2} g^{\chi \chi} \partial_{\chi} g_{t t} = \tan{\chi}
+\end{align}
+(ii) The geodesic equation
+\begin{align}
+\frac{d u^{\alpha}}{d \tau} = - \Gamma^{\alpha}_{\mu \nu} u^{\mu} u^{\nu}
+\end{align}
+\begin{align}
+\frac{d u^{t}}{d \tau} = - \Gamma^{t}_{\mu \nu} u^{\mu} u^{\nu} = - 2 \Gamma^{t}_{t \chi} u^{t} u^{\chi} = - 2 \tan{\chi} \, u^{t} u^{\chi}
+\end{align}
+\begin{align}
+\frac{d u^{\chi}}{d \tau} &= - \Gamma^{\chi}_{\mu \nu} u^{\mu} u^{\nu} = - \Gamma^{\chi}_{\chi \chi} (u^{\chi})^2 - \Gamma^{\chi}_{t t} (u^{t})^2 \\
+&= - \tan{\chi} \, \left((u^{\chi})^2 + (u^{t})^2\right)
+\end{align}
+(iii) Here,
+\begin{align}
+v^{\chi} = \frac{d \chi}{d t} = \frac{u^{\chi}}{u^{t}} \Leftrightarrow u^{\chi} = u^{t} v^{\chi}
+\end{align}
+Now,
+\begin{align}
+\frac{d u^{\chi}}{d \tau} &= \frac{d  \left(u^{t}v^{\chi}\right)}{d \tau} = u^{t} \frac{d  v^{\chi}}{d \tau} +  v^{\chi} \frac{d  u^{t}}{d \tau}
+= u^{t} \frac{d  v^{\chi}}{d \tau} - 2 \tan{\chi} \, u^{\chi} u^{t} v^{\chi} \\
+&= - \tan{\chi} \, \left((u^{\chi})^2 + (u^{t})^2\right) \\
+\end{align}
+$\Leftrightarrow$
+\begin{align}
+u^{t} \frac{d  v^{\chi}}{d \tau} = 2 \tan{\chi} \, u^{\chi} u^{t} v^{\chi} - \tan{\chi} \, \left((u^{\chi})^2 + (u^{t})^2\right)
+\end{align}
+$\Leftrightarrow$
+\begin{align}
+(u^{t})^2 \frac{d  v^{\chi}}{d t} = 2 \tan{\chi} \, u^{t} v^{\chi} u^{t} v^{\chi} - \tan{\chi} \, \left((u^{t} v^{\chi})^2 + (u^{t})^2\right)
+\end{align}
+$\Leftrightarrow$
+\begin{align}
+\frac{d  v^{\chi}}{d t} = \tan{\chi} \, \left[(v^{\chi})^2 - 1\right]
+\end{align}
+\end{document}
